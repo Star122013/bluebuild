@@ -1,13 +1,13 @@
 ---
 # yaml-language-server: $schema=https://schema.blue-build.org/recipe-v1.json
 # image will be published to ghcr.io/<user>/<name>
-name: template
+name: niri-desktop
 # description will be included in the image's metadata
 description: This is my personal OS image.
 
 # the base image to build on top of (FROM) and the version tag to use
-base-image: ghcr.io/ublue-os/silverblue-main
-image-version: 42 # latest is also supported if you want new updates ASAP
+base-image: ghcr.io/blue-build/base-images/fedora-kinoite
+image-version: latest # latest is also supported if you want new updates ASAP
 
 # module configuration, executed in order
 # you can include multiple instances of the same module
@@ -21,16 +21,43 @@ modules:
     repos:
       copr:
         - atim/starship
+        - aldantanneo/jj-vcs
+        - bieszczaders/kernel-cachyos-lto
+        - bieszczaders/kernel-cachyos-addons
+        - scottames/ghostty
     install:
       packages:
-        - micro
+        # editors
+        - neovim
+        - helix
+        # shell-tools
+        - ripgrep
+        - fd-find
+        - git
+        - jj-cli
+        - zsh
         - starship
+        # misc
+        - kitty
+        - ghostty
+        - kernel-cachyos-lto
+        - scx-tools
     remove:
       packages:
+        # replace the Fedora stock kernel with the CachyOS kernel
+        - kernel
+        - kernel-core
+        - kernel-modules
+        - kernel-modules-core
+        - kernel-modules-extra
         # example: removing firefox (in favor of the flatpak)
         # "firefox" is the main package, "firefox-langpacks" is a dependency
         - firefox
         - firefox-langpacks # also remove firefox dependency (not required for all packages, this is a special case)
+
+  - type: brew
+    nofile-limits: true # increase nofile limits for I/O heavy brew packages
+    brew-analytics: false # disable telemetry
 
   - type: default-flatpaks
     configurations:
