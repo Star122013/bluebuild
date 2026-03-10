@@ -42,7 +42,7 @@ modules:
         - ghostty
         # CachyOS kernel (explicit subpackages so initramfs generation works)
         - kernel-cachyos-lto-core
-        - kernel-cachyos-lto-modules
+        - kernel-cachyos-lto-devel-matched
         - scx-tools
     remove:
       packages:
