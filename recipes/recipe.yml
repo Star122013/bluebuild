@@ -40,7 +40,11 @@ modules:
         # misc
         - kitty
         - ghostty
-        - kernel-cachyos-lto
+        # CachyOS kernel (explicit subpackages so initramfs generation works)
+        - kernel-cachyos-lto-core
+        - kernel-cachyos-lto-modules
+        - kernel-cachyos-lto-modules-core
+        - kernel-cachyos-lto-modules-extra
         - scx-tools
     remove:
       packages:
