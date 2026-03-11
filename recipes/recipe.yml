@@ -17,12 +17,16 @@ modules:
       - source: system
         destination: / # copies files/system/* (* means everything inside it) into your image's root folder /
 
+  - type: script
+    snippets:
+      - "mkdir -p /run && touch /run/ostree-booted"
+
   - type: dnf
     repos:
       copr:
         - atim/starship
         - aldantanneo/jj-vcs
-        - bieszczaders/kernel-cachyos
+        - bieszczaders/kernel-cachyos-lto
         - bieszczaders/kernel-cachyos-addons
         - scottames/ghostty
     install:
@@ -40,8 +44,8 @@ modules:
         # misc
         - kitty
         - ghostty
-        # CachyOS kernel (GCC / non-LTO)
-        - kernel-cachyos
+        # CachyOS kernel (LTO)
+        - kernel-cachyos-lto
         - scx-tools
     remove:
       packages:
@@ -56,6 +60,10 @@ modules:
         - firefox
         - firefox-langpacks # also remove firefox dependency (not required for all packages, this is a special case)
 
+  - type: script
+    snippets:
+      - "rm -f /run/ostree-booted"
+
   - type: brew
     nofile-limits: true # increase nofile limits for I/O heavy brew packages
     brew-analytics: false # disable telemetry
@@ -69,5 +77,7 @@ modules:
           - org.mozilla.firefox
           - org.gnome.Loupe
       - scope: user # Also add Flathub user repo, but no user packages
+
+  - type: initramfs
 
   - type: signing # this sets up the proper policy & signing files for signed images to work fully
