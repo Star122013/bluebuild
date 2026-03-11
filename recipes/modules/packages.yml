@@ -25,7 +25,12 @@ install:
     - alacritty
     - fuzzel
     - gnome-keyring
+    # runtime libs for custom-built niri (source builds don't auto-pull RPM deps)
+    - libinput
+    - libseat
     - maple-mono-nf-cn
+    - mesa-libgbm
+    - pipewire-libs
     - SwayNotificationCenter
     - waybar
     - xdg-desktop-portal-gnome
