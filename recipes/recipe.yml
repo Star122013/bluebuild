@@ -40,9 +40,8 @@ modules:
         # misc
         - kitty
         - ghostty
-        # CachyOS kernel (explicit subpackages so initramfs generation works)
-        - kernel-cachyos-lto-core
-        - kernel-cachyos-lto-devel-matched
+        # CachyOS kernel (use the meta package so modules/depmod are present for initramfs generation)
+        - kernel-cachyos-lto
         - scx-tools
     remove:
       packages:
