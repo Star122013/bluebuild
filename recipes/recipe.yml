@@ -35,6 +35,7 @@ modules:
         - neovim
         - helix
         # shell-tools
+        - fastfetch
         - ripgrep
         - fd-find
         - git
