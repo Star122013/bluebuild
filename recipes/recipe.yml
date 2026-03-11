@@ -22,7 +22,6 @@ modules:
       copr:
         - atim/starship
         - aldantanneo/jj-vcs
-        - bieszczaders/kernel-cachyos-lto
         - bieszczaders/kernel-cachyos-addons
         - scottames/ghostty
     install:
@@ -40,21 +39,26 @@ modules:
         # misc
         - kitty
         - ghostty
-        # CachyOS kernel (use the meta package so modules/depmod are present for initramfs generation)
-        - kernel-cachyos-lto
         - scx-tools
     remove:
       packages:
-        # replace the Fedora stock kernel with the CachyOS kernel
-        - kernel
-        - kernel-core
-        - kernel-modules
-        - kernel-modules-core
-        - kernel-modules-extra
         # example: removing firefox (in favor of the flatpak)
         # "firefox" is the main package, "firefox-langpacks" is a dependency
         - firefox
         - firefox-langpacks # also remove firefox dependency (not required for all packages, this is a special case)
+
+  - type: rpm-ostree
+    repos:
+      - https://copr.fedorainfracloud.org/coprs/bieszczaders/kernel-cachyos-lto/repo/fedora-%OS_VERSION%/bieszczaders-kernel-cachyos-lto-fedora-%OS_VERSION%.repo
+    install:
+      - kernel-cachyos-lto
+    remove:
+      # replace the Fedora stock kernel with the CachyOS kernel using the Atomic-native path
+      - kernel
+      - kernel-core
+      - kernel-modules
+      - kernel-modules-core
+      - kernel-modules-extra
 
   - type: brew
     nofile-limits: true # increase nofile limits for I/O heavy brew packages
