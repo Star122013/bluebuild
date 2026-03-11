@@ -1,0 +1,7 @@
+// Put monitor-specific configuration here.
+// Example:
+// output "DP-2" {
+//     mode "2560x1440@170.003"
+//     scale 1.0
+//     transform "normal"
+// }

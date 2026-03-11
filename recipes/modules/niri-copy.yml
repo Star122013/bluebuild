@@ -1,0 +1,23 @@
+---
+# yaml-language-server: $schema=https://schema.blue-build.org/module-list-v1.json
+
+modules:
+  - type: copy
+    from: niri-build
+    src: /out/usr/bin/
+    dest: /usr/bin/
+
+  - type: copy
+    from: niri-build
+    src: /out/usr/share/wayland-sessions/
+    dest: /usr/share/wayland-sessions/
+
+  - type: copy
+    from: niri-build
+    src: /out/usr/share/xdg-desktop-portal/
+    dest: /usr/share/xdg-desktop-portal/
+
+  - type: copy
+    from: niri-build
+    src: /out/usr/lib/systemd/user/
+    dest: /usr/lib/systemd/user/

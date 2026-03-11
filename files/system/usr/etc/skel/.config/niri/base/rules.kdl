@@ -1,0 +1,57 @@
+workspace "browser"
+workspace "code"
+workspace "chat"
+
+window-rule {
+    geometry-corner-radius 10
+    clip-to-geometry true
+    opacity 0.95
+
+    background-effect {
+        blur true
+    }
+}
+
+window-rule {
+    match title="^Open File(.*)$"
+    match title="^Select a File(.*)$"
+    match title="^Open Folder(.*)$"
+    match title="^Save As(.*)$"
+    match title="^Picture-in-Picture$"
+    match app-id="^org.pulseaudio.pavucontrol$"
+    match app-id="^nm-connection-editor$"
+
+    open-floating true
+}
+
+window-rule {
+    match app-id="^firefox$"
+    match app-id="^firefox-bin$"
+    open-on-workspace "browser"
+}
+
+window-rule {
+    match app-id="^com.mitchellh.ghostty$"
+    match app-id="^kitty$"
+    match app-id="^neovide$"
+
+    draw-border-with-background false
+    open-on-workspace "code"
+}
+
+window-rule {
+    match app-id="^vesktop$"
+    match app-id="^org.telegram.desktop$"
+    match app-id="^Element$"
+
+    default-column-width {
+        proportion 0.5
+    }
+
+    open-on-workspace "chat"
+}
+
+window-rule {
+    match app-id="^mpv$"
+    open-fullscreen true
+}

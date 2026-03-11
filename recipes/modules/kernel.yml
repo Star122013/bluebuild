@@ -1,0 +1,32 @@
+---
+# yaml-language-server: $schema=https://schema.blue-build.org/module-list-v1.json
+
+modules:
+  - type: script
+    snippets:
+      - "mkdir -p /run && touch /run/ostree-booted"
+
+  - type: dnf
+    repos:
+      copr:
+        - bieszczaders/kernel-cachyos-lto
+        - bieszczaders/kernel-cachyos-addons
+    install:
+      packages:
+        # CachyOS kernel (LTO)
+        - kernel-cachyos-lto
+        - scx-tools
+    remove:
+      packages:
+        # replace the Fedora stock kernel with the CachyOS kernel
+        - kernel
+        - kernel-core
+        - kernel-modules
+        - kernel-modules-core
+        - kernel-modules-extra
+
+  - type: script
+    snippets:
+      - "rm -f /run/ostree-booted"
+
+  - type: initramfs

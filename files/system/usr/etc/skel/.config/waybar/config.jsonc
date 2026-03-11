@@ -1,0 +1,162 @@
+{
+  "layer": "top",
+  "position": "bottom",
+  "mode": "dock",
+  "height": 38,
+  "spacing": 6,
+  "margin-left": 12,
+  "margin-right": 12,
+  "margin-bottom": 10,
+  "reload_style_on_change": true,
+  "expand-center": true,
+
+  "modules-left": [
+    "custom/fedora",
+    "niri/workspaces"
+  ],
+  "modules-center": [
+    "niri/window"
+    // Good future additions:
+    // "custom/media",
+    // "custom/updates"
+  ],
+  "modules-right": [
+    "temperature",
+    "cpu",
+    "bluetooth",
+    "network",
+    "pulseaudio",
+    "battery",
+    "tray",
+    "clock",
+    "custom/power"
+  ],
+
+  "custom/fedora": {
+    "format": "",
+    "tooltip": false
+  },
+
+  "niri/workspaces": {
+    "all-outputs": false,
+    "disable-scroll": true,
+    "format": "{icon}",
+    "format-icons": {
+      "browser": "󰖟",
+      "code": "󰅩",
+      "chat": "󰭹",
+      "focused": "",
+      "active": "",
+      "urgent": "",
+      "empty": "",
+      "default": ""
+    }
+  },
+
+  "niri/window": {
+    "format": "{title}",
+    "icon": true,
+    "icon-size": 14,
+    "separate-outputs": true,
+    "rewrite": {
+      "(.*) - Mozilla Firefox": "$1",
+      "(.*) — Mozilla Firefox": "$1",
+      "(.*) - Zen Browser": "$1",
+      "(.*) — Zen Browser": "$1"
+    }
+  },
+
+  "temperature": {
+    "critical-threshold": 80,
+    "format": "󰔄 {temperatureC}°",
+    "format-critical": "󱃂 {temperatureC}°",
+    "tooltip": false
+  },
+
+  "cpu": {
+    "format": "󰻠 {usage}%",
+    "tooltip": false
+  },
+
+  "bluetooth": {
+    "format": " {status}",
+    "format-disabled": "󰂲 off",
+    "format-off": "󰂲 off",
+    "format-on": " on",
+    "format-connected": " {num_connections}",
+    "format-connected-battery": " {device_battery_percentage}%",
+    "tooltip-format": "{controller_alias}\t{controller_address}",
+    "tooltip-format-connected": "{controller_alias}\t{controller_address}\n\n{device_enumerate}",
+    "tooltip-format-enumerate-connected": "{device_alias}\t{device_address}"
+  },
+
+  "network": {
+    "interval": 5,
+    "format-wifi": "{icon} {signalStrength}%",
+    "format-ethernet": "󰈀 wired",
+    "format-linked": "󰈀 no ip",
+    "format-disconnected": "󰖪 down",
+    "format-disabled": "󰖪 off",
+    "tooltip-format-wifi": "{essid} ({signalStrength}%)\n{ipaddr}",
+    "tooltip-format-ethernet": "{ifname}\n{ipaddr}",
+    "tooltip-format-disconnected": "Network disconnected",
+    "format-icons": ["󰤯", "󰤟", "󰤢", "󰤥", "󰤨"]
+  },
+
+  "pulseaudio": {
+    "scroll-step": 5,
+    "format": "{icon} {volume}%",
+    "format-bluetooth": " {icon} {volume}%",
+    "format-muted": "󰖁 mute",
+    "format-icons": {
+      "headphone": "󰋋",
+      "headset": "󰋎",
+      "hands-free": "󰋎",
+      "portable": "󰋐",
+      "car": "󰄋",
+      "phone": "󰏲",
+      "default": ["󰕿", "󰖀", "󰕾"]
+    }
+  },
+
+  "battery": {
+    "states": {
+      "warning": 30,
+      "critical": 15
+    },
+    "format": "{icon} {capacity}%",
+    "format-charging": "󰂄 {capacity}%",
+    "format-full": "󰁹 {capacity}%",
+    "format-icons": ["󰂎", "󰁺", "󰁻", "󰁼", "󰁽", "󰁾", "󰁿", "󰂀", "󰂁", "󰂂", "󰁹"]
+  },
+
+  "tray": {
+    "spacing": 8
+  },
+
+  "clock": {
+    "interval": 60,
+    "format": "󰥔 {:%H:%M}",
+    "format-alt": "󰃭 {:%a %d %b}",
+    "tooltip-format": "<tt><small>{calendar}</small></tt>",
+    "calendar": {
+      "mode": "month",
+      "mode-mon-col": 3,
+      "weeks-pos": "right",
+      "on-scroll": 1,
+      "format": {
+        "months": "<span color='#89b4fa'><b>{}</b></span>",
+        "days": "<span color='#cdd6f4'><b>{}</b></span>",
+        "weekdays": "<span color='#f9e2af'><b>{}</b></span>",
+        "today": "<span color='#11111b' background='#89b4fa'><b>{}</b></span>"
+      }
+    }
+  },
+
+  "custom/power": {
+    "format": "󰐥",
+    "tooltip": false,
+    "cursor": false
+    // Add an on-click later if you install wlogout or a power menu.
+  }
+}

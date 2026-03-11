@@ -1,0 +1,124 @@
+#custom-fedora {
+  color: @blue;
+  font-size: 18px;
+  padding-left: 14px;
+  padding-right: 14px;
+}
+
+#workspaces {
+  padding: 0 8px;
+}
+
+#workspaces button {
+  background: transparent;
+  border-radius: 10px;
+  color: @overlay0;
+  margin: 5px 3px;
+  padding: 0 10px;
+}
+
+#workspaces button:hover {
+  background: alpha(@surface0, 0.88);
+  color: @text;
+}
+
+#workspaces button.focused {
+  background: linear-gradient(90deg, alpha(@blue, 0.95), alpha(@lavender, 0.88));
+  color: @crust;
+}
+
+#workspaces button.active {
+  background: alpha(@surface0, 0.92);
+  color: @blue;
+}
+
+#workspaces button.urgent {
+  background: alpha(@red, 0.18);
+  color: @red;
+}
+
+#workspaces button.empty {
+  color: @overlay0;
+}
+
+#window {
+  color: @subtext1;
+}
+
+#temperature {
+  color: @yellow;
+}
+
+#temperature.critical {
+  color: @red;
+}
+
+#cpu {
+  color: @lavender;
+}
+
+#bluetooth {
+  color: @sapphire;
+}
+
+#bluetooth.off,
+#bluetooth.disabled {
+  color: @overlay0;
+}
+
+#network {
+  color: @green;
+}
+
+#network.disconnected,
+#network.disabled {
+  color: @overlay0;
+}
+
+#pulseaudio {
+  color: @mauve;
+}
+
+#pulseaudio.muted {
+  color: @overlay0;
+}
+
+#battery {
+  color: @teal;
+}
+
+#battery.warning {
+  color: @yellow;
+}
+
+#battery.critical {
+  color: @red;
+}
+
+#clock {
+  color: @peach;
+  padding-right: 16px;
+}
+
+#custom-power {
+  color: @red;
+  padding-left: 14px;
+  padding-right: 14px;
+}
+
+#tray > .passive {
+  -gtk-icon-effect: dim;
+}
+
+#tray > .needs-attention {
+  -gtk-icon-effect: highlight;
+  background: alpha(@red, 0.20);
+  border-radius: 10px;
+}
+
+/* Future extension hooks:
+ * - #custom-updates
+ * - #custom-media
+ * - #custom-weather
+ * - #custom-launcher
+ */

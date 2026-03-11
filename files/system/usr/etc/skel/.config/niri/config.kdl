@@ -1,0 +1,13 @@
+// Base = image-maintained defaults
+include "base/environment.kdl"
+include "base/animations.kdl"
+include "base/layout.kdl"
+include "base/rules.kdl"
+include "base/switcher.kdl"
+include "base/theme.kdl"
+
+// Local = user-maintained overrides and machine-specific settings
+include "local/input.kdl"
+include "local/outputs.kdl"
+include "local/autostart.kdl"
+include "local/keybinds.kdl"

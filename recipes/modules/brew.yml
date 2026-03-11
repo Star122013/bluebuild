@@ -1,0 +1,6 @@
+---
+# yaml-language-server: $schema=https://schema.blue-build.org/module-v1.json
+
+type: brew
+nofile-limits: true # increase nofile limits for I/O heavy brew packages
+brew-analytics: false # disable telemetry

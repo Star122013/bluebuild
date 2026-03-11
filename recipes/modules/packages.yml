@@ -1,0 +1,42 @@
+---
+# yaml-language-server: $schema=https://schema.blue-build.org/module-v1.json
+
+type: dnf
+repos:
+  copr:
+    - atim/starship
+    - aldantanneo/jj-vcs
+    - agonie/Maple-mono-nf-cn
+    - scottames/ghostty
+install:
+  packages:
+    # editors
+    - neovim
+    - helix
+    # shell-tools
+    - fastfetch
+    - ripgrep
+    - fd-find
+    - git
+    - jj-cli
+    - zsh
+    - starship
+    # niri runtime helpers
+    - alacritty
+    - fuzzel
+    - gnome-keyring
+    - maple-mono-nf-cn
+    - SwayNotificationCenter
+    - waybar
+    - xdg-desktop-portal-gnome
+    - xdg-desktop-portal-gtk
+    - xwayland-satellite
+    # misc
+    - kitty
+    - ghostty
+remove:
+  packages:
+    # example: removing firefox (in favor of the flatpak)
+    # "firefox" is the main package, "firefox-langpacks" is a dependency
+    - firefox
+    - firefox-langpacks # also remove firefox dependency (not required for all packages, this is a special case)

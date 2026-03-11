@@ -1,0 +1,31 @@
+environment {
+    QT_QPA_PLATFORM "wayland"
+    MOZ_ENABLE_WAYLAND "1"
+    EDITOR "nvim"
+    TERMINAL "ghostty"
+    XCURSOR_SIZE "24"
+}
+
+prefer-no-csd
+screenshot-path "~/Pictures/Screenshots/%Y-%m-%d %H-%M-%S.png"
+
+hotkey-overlay {
+    skip-at-startup
+}
+
+cursor {
+    xcursor-size 24
+    hide-when-typing
+}
+
+debug {
+    honor-xdg-activation-with-invalid-serial
+}
+
+// Optional input method settings if you add fcitx5 later:
+// environment {
+//     XMODIFIERS "@im=fcitx"
+//     QT_IM_MODULES "wayland;fcitx"
+//     INPUT_METHOD "fcitx"
+//     SDL_IM_MODULE "fcitx"
+// }

@@ -1,0 +1,9 @@
+spawn-at-startup "waybar"
+spawn-at-startup "swaync"
+spawn-at-startup "xwayland-satellite"
+spawn-at-startup "sh" "-c" "command -v gnome-keyring-daemon >/dev/null && gnome-keyring-daemon --start --components=secrets >/dev/null 2>&1"
+
+// Optional extras if you add them later:
+// spawn-at-startup "fcitx5"
+// spawn-at-startup "sh" "-c" "wl-paste --type image --watch cliphist store"
+// spawn-at-startup "sh" "-c" "wl-paste --type text --watch cliphist store"

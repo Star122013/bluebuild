@@ -1,0 +1,20 @@
+theme = Catppuccin Mocha
+window-theme = dark
+
+font-family = "Maple Mono NF CN"
+font-size = 14
+font-feature = calt
+
+cursor-style = block
+cursor-style-blink = false
+cursor-color = #89b4fa
+cursor-text = cell-background
+cursor-opacity = 0.95
+
+background-opacity = 0.92
+background-opacity-cells = true
+background-blur = 20
+mouse-hide-while-typing = true
+
+custom-shader = /usr/share/ghostty/shaders/cursor-glow.glsl
+custom-shader-animation = true
