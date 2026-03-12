@@ -1,40 +1,45 @@
 #custom-fedora {
-  color: @blue;
+  background: linear-gradient(135deg, alpha(@md-primary, 0.18), alpha(@sapphire, 0.12));
+  border-color: alpha(@md-primary, 0.34);
+  color: @md-primary;
   font-size: 18px;
-  padding-left: 14px;
-  padding-right: 14px;
+  padding-left: 16px;
+  padding-right: 16px;
 }
 
 #workspaces {
-  padding: 0 8px;
+  background: alpha(@md-surface-container, 0.96);
+  border-color: alpha(@overlay1, 0.18);
+  padding: 0 10px;
 }
 
 #workspaces button {
   background: transparent;
-  border-radius: 10px;
-  color: @overlay0;
-  margin: 5px 3px;
+  border-radius: 14px;
+  color: @overlay1;
+  margin: 5px 4px;
+  min-width: 34px;
   padding: 0 10px;
 }
 
 #workspaces button:hover {
-  background: alpha(@surface0, 0.88);
+  background: alpha(@surface1, 0.92);
   color: @text;
 }
 
 #workspaces button.focused {
-  background: linear-gradient(90deg, alpha(@blue, 0.95), alpha(@lavender, 0.88));
-  color: @crust;
+  background: linear-gradient(135deg, alpha(@md-primary, 0.96), alpha(@lavender, 0.88));
+  color: @md-on-primary;
 }
 
 #workspaces button.active {
-  background: alpha(@surface0, 0.92);
-  color: @blue;
+  background: alpha(@surface1, 0.96);
+  color: @md-primary;
 }
 
 #workspaces button.urgent {
-  background: alpha(@red, 0.18);
-  color: @red;
+  background: alpha(@md-error, 0.18);
+  color: @md-error;
 }
 
 #workspaces button.empty {
@@ -42,7 +47,8 @@
 }
 
 #window {
-  color: @subtext1;
+  color: @text;
+  font-weight: 700;
 }
 
 #temperature {
@@ -50,7 +56,9 @@
 }
 
 #temperature.critical {
-  color: @red;
+  background: alpha(@md-error, 0.14);
+  border-color: alpha(@md-error, 0.26);
+  color: @md-error;
 }
 
 #cpu {
@@ -61,49 +69,66 @@
   color: @sapphire;
 }
 
-#bluetooth.off,
-#bluetooth.disabled {
-  color: @overlay0;
-}
-
 #network {
   color: @green;
-}
-
-#network.disconnected,
-#network.disabled {
-  color: @overlay0;
 }
 
 #pulseaudio {
   color: @mauve;
 }
 
-#pulseaudio.muted {
-  color: @overlay0;
-}
-
 #battery {
   color: @teal;
 }
 
+#bluetooth.off,
+#bluetooth.disabled,
+#network.disconnected,
+#network.disabled,
+#pulseaudio.muted {
+  background: alpha(@surface0, 0.76);
+  border-color: alpha(@overlay0, 0.16);
+  color: @overlay1;
+}
+
+#battery.charging {
+  background: alpha(@md-success, 0.10);
+  border-color: alpha(@md-success, 0.22);
+  color: @md-success;
+}
+
 #battery.warning {
-  color: @yellow;
+  background: alpha(@md-warning, 0.12);
+  border-color: alpha(@md-warning, 0.24);
+  color: @md-warning;
 }
 
 #battery.critical {
-  color: @red;
+  background: alpha(@md-error, 0.14);
+  border-color: alpha(@md-error, 0.26);
+  color: @md-error;
+}
+
+#tray {
+  padding-left: 12px;
+  padding-right: 12px;
 }
 
 #clock {
+  background: alpha(@surface0, 0.96);
+  border-color: alpha(@peach, 0.20);
   color: @peach;
-  padding-right: 16px;
+  font-weight: 700;
+  padding-left: 16px;
+  padding-right: 18px;
 }
 
 #custom-power {
-  color: @red;
-  padding-left: 14px;
-  padding-right: 14px;
+  background: alpha(@md-error, 0.12);
+  border-color: alpha(@md-error, 0.24);
+  color: @md-error;
+  padding-left: 16px;
+  padding-right: 16px;
 }
 
 #tray > .passive {
@@ -112,13 +137,6 @@
 
 #tray > .needs-attention {
   -gtk-icon-effect: highlight;
-  background: alpha(@red, 0.20);
-  border-radius: 10px;
+  background: alpha(@md-error, 0.20);
+  border-radius: 12px;
 }
-
-/* Future extension hooks:
- * - #custom-updates
- * - #custom-media
- * - #custom-weather
- * - #custom-launcher
- */

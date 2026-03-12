@@ -2,9 +2,9 @@
   border: none;
   border-radius: 0;
   min-height: 0;
-  font-family: "Maple Mono NF CN";
+  font-family: "Inter", "Noto Sans CJK SC", "Maple Mono NF CN";
   font-size: 13px;
-  font-weight: 700;
+  font-weight: 600;
 }
 
 window#waybar {
@@ -17,14 +17,15 @@ window#waybar.hidden {
 }
 
 tooltip {
-  background: alpha(@crust, 0.96);
-  border: 1px solid alpha(@surface2, 0.70);
-  border-radius: 14px;
+  background: alpha(@md-surface-container, 0.98);
+  border: 1px solid alpha(@md-outline, 0.34);
+  border-radius: 18px;
+  box-shadow: 0 10px 30px alpha(@crust, 0.45);
 }
 
 tooltip label {
   color: @text;
-  padding: 6px 8px;
+  padding: 8px 10px;
 }
 
 #custom-fedora,
@@ -39,20 +40,25 @@ tooltip label {
 #tray,
 #clock,
 #custom-power {
-  background: alpha(@base, 0.88);
-  border: 1px solid alpha(@surface2, 0.65);
-  border-radius: 14px;
+  background: alpha(@md-surface, 0.92);
+  border: 1px solid alpha(@md-outline, 0.22);
+  border-radius: 20px;
+  box-shadow: 0 8px 24px alpha(@crust, 0.30);
   color: @text;
   margin: 0 4px;
-  padding: 0 12px;
+  min-height: 34px;
+  padding: 0 14px;
 }
 
 #window {
-  min-width: 320px;
-  padding: 0 18px;
+  background: alpha(@md-surface-container-high, 0.96);
+  border-color: alpha(@overlay1, 0.24);
+  min-width: 360px;
+  padding: 0 20px;
 }
 
 window#waybar.empty #window {
-  background: transparent;
-  border-color: transparent;
+  background: alpha(@md-surface-container, 0.70);
+  border-color: alpha(@overlay0, 0.14);
+  color: @overlay0;
 }

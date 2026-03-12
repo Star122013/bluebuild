@@ -24,3 +24,18 @@
 @define-color base #1e1e2e;
 @define-color mantle #181825;
 @define-color crust #11111b;
+
+@define-color md-primary #89b4fa;
+@define-color md-on-primary #11111b;
+@define-color md-primary-container #313244;
+@define-color md-secondary #cba6f7;
+@define-color md-secondary-container #45475a;
+@define-color md-surface #1e1e2e;
+@define-color md-surface-container #181825;
+@define-color md-surface-container-high #313244;
+@define-color md-surface-container-highest #45475a;
+@define-color md-outline #6c7086;
+@define-color md-outline-variant #585b70;
+@define-color md-error #f38ba8;
+@define-color md-warning #f9e2af;
+@define-color md-success #a6e3a1;
