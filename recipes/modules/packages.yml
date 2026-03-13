@@ -11,6 +11,7 @@ repos:
     - agonie/Maple-mono-nf-cn
     - scottames/ghostty
     - scottames/awww
+    - errornointernet/quickshell
 install:
   packages:
     - Throne
@@ -42,7 +43,7 @@ install:
     - google-noto-serif-cjk-fonts
     - google-noto-emoji-color-fonts
     # quickshell
-    - quickshell
+    - quickshell-git
     - qt6-qt5compat
     - qt5-qtsvg
     - qt6-qtsvg
