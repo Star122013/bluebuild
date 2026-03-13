@@ -1,0 +1,8 @@
+---
+# yaml-language-server: $schema=https://schema.blue-build.org/module-v1.json
+
+type: script
+snippets:
+  - install -d /usr/etc/skel/.config
+  - rm -rf /usr/etc/skel/.config/quickshell
+  - git clone https://github.com/Star122013/quickshell-past /usr/etc/skel/.config/quickshell

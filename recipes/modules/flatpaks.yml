@@ -7,6 +7,9 @@ configurations:
     scope: system
     # If no repo information is specified, Flathub will be used by default
     install: # system flatpaks we want all users to have and not remove
-      - org.mozilla.firefox
+      - com.google.Chrome
       - org.gnome.Loupe
+      # runtime font extensions for better CJK/emoji fallback in flatpaks
+      - org.freedesktop.Platform.Fonts.Noto//24.08
+      - org.freedesktop.Platform.Fonts.Noto.CJK//24.08
   - scope: user # Also add Flathub user repo, but no user packages

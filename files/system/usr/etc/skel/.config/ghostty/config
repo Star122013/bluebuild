@@ -16,5 +16,3 @@ background-opacity-cells = true
 background-blur = 20
 mouse-hide-while-typing = true
 
-custom-shader = /usr/share/ghostty/shaders/cursor-glow.glsl
-custom-shader-animation = true

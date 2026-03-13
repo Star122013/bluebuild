@@ -1,0 +1,9 @@
+---
+# yaml-language-server: $schema=https://schema.blue-build.org/module-v1.json
+
+type: script
+snippets:
+  # Expose host fontconfig to flatpak sandboxes (read-only).
+  - flatpak override --system --filesystem=/etc/fonts:ro
+  - flatpak override --system --filesystem=/usr/share/fontconfig:ro
+  - flatpak override --system --filesystem=xdg-config/fontconfig:ro

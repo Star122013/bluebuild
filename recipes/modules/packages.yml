@@ -5,11 +5,15 @@ type: dnf
 repos:
   copr:
     - atim/starship
+    - leloubil/wl-clip-persist
+    - liusen/Throne
     - aldantanneo/jj-vcs
     - agonie/Maple-mono-nf-cn
     - scottames/ghostty
+    - scottames/awww
 install:
   packages:
+    - Throne
     # editors
     - neovim
     - helix
@@ -22,26 +26,50 @@ install:
     - zsh
     - starship
     # niri runtime helpers
-    - alacritty
     - fuzzel
     - gnome-keyring
+    - nautilus
     # runtime libs for custom-built niri (source builds don't auto-pull RPM deps)
     - libinput
     - libseat
     - maple-mono-nf-cn
     - mesa-libgbm
     - pipewire-libs
-    - SwayNotificationCenter
-    - waybar
+    - cliphist
+    - wl-clip-persist
+    # broader fallback coverage for CJK and emoji in native apps
+    - google-noto-sans-cjk-fonts
+    - google-noto-serif-cjk-fonts
+    - google-noto-emoji-color-fonts
+    # quickshell
+    - quickshell
+    - qt6-qt5compat
+    - qt5-qtsvg
+    - qt6-qtsvg
+    # portal
     - xdg-desktop-portal-gnome
     - xdg-desktop-portal-gtk
     - xwayland-satellite
     # misc
     - kitty
     - ghostty
+    - awww
 remove:
   packages:
     # example: removing firefox (in favor of the flatpak)
     # "firefox" is the main package, "firefox-langpacks" is a dependency
     - firefox
     - firefox-langpacks # also remove firefox dependency (not required for all packages, this is a special case)
+    # kde apps (keep plasma desktop core, strip common user apps)
+    - ark
+    - dolphin
+    - dragon
+    - elisa-player
+    - gwenview
+    - kate
+    - kcalc
+    - khelpcenter
+    - konsole
+    - okular
+    - plasma-discover
+    - spectacle
