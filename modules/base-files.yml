@@ -1,0 +1,7 @@
+---
+# yaml-language-server: $schema=https://schema.blue-build.org/module-v1.json
+
+type: files
+files:
+  - source: system
+    destination: / # copies only files/system/* into /; files/gschema-overrides/* is handled by gschema-overrides module

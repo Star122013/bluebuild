@@ -4,3 +4,10 @@
 type: brew
 nofile-limits: true # increase nofile limits for I/O heavy brew packages
 brew-analytics: false # disable telemetry
+auto-update: true
+update-wait-after-boot: "30m"
+update-interval: "1d"
+auto-upgrade: true
+upgrade-wait-after-boot: "30m"
+upgrade-interval: "1d"
+

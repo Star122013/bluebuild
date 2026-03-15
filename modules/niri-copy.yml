@@ -9,5 +9,5 @@ modules:
 
   - type: copy
     from: niri-build
-    src: /out/runtime/
+    src: /out/runtime
     dest: /

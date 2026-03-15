@@ -9,4 +9,8 @@ configurations:
     install: # system flatpaks we want all users to have and not remove
       - com.google.Chrome
       - org.gnome.Loupe
+      - org.gtk.Gtk3theme.adw-gtk3-dark
+      - org.gtk.Gtk3theme.adw-gtk3
+      - com.qq.QQ
+      - in.cinny.Cinny
   - scope: user # Also add Flathub user repo, but no user packages

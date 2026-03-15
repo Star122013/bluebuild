@@ -11,10 +11,11 @@ repos:
     - leloubil/wl-clip-persist
     - liusen/Throne
     - aldantanneo/jj-vcs
-    - agonie/Maple-mono-nf-cn
     - scottames/ghostty
     - scottames/awww
     - errornointernet/quickshell
+    - solopasha/hyprland
+    - peterwu/rendezvous
 install:
   packages:
     - terra-release
@@ -35,18 +36,14 @@ install:
     - fuzzel
     - gnome-keyring
     - nautilus
+    - os-prober
     # runtime libs for custom-built niri (source builds don't auto-pull RPM deps)
     - libinput
     - libseat
-    - maple-mono-nf-cn
     - mesa-libgbm
     - pipewire-libs
     - cliphist
     - wl-clip-persist
-    # broader fallback coverage for CJK and emoji in native apps
-    - google-noto-sans-cjk-fonts
-    - google-noto-serif-cjk-fonts
-    - google-noto-emoji-color-fonts
     # portal
     - xdg-desktop-portal-gnome
     - xdg-desktop-portal-gtk
@@ -55,6 +52,10 @@ install:
     - kitty
     - ghostty
     - awww
+    - nwg-look
+    - qt6ct
+    - adw-gtk3-theme
+    - bibata-cursor-themes
 remove:
   packages:
     # example: removing firefox (in favor of the flatpak)

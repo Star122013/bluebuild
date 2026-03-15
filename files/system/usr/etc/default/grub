@@ -1,0 +1,20 @@
+# Managed by BlueBuild (files/system/usr/etc/default/grub).
+# Rebuild the image to roll out changes. Do not edit /boot/grub2/grub.cfg directly.
+
+GRUB_TIMEOUT=3
+GRUB_TIMEOUT_STYLE=menu
+GRUB_DEFAULT=saved
+GRUB_SAVEDEFAULT=true
+GRUB_DISABLE_SUBMENU=true
+GRUB_TERMINAL_OUTPUT="console"
+
+# Balanced desktop profile:
+# - keep splash and quiet output
+# - lower kernel/udev boot verbosity
+# - disable lockup watchdog overhead
+GRUB_CMDLINE_LINUX="rhgb loglevel=3 rd.udev.log_level=3 nowatchdog"
+GRUB_DISABLE_RECOVERY="true"
+GRUB_ENABLE_BLSCFG=true
+
+# Enable OS probing so other installed systems appear in GRUB.
+GRUB_DISABLE_OS_PROBER=false

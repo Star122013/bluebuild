@@ -1,0 +1,8 @@
+---
+# yaml-language-server: $schema=https://schema.blue-build.org/module-v1.json
+
+type: script
+snippets:
+  - git clone --depth 1 --branch 2025-12-27 https://github.com/vinceliuice/WhiteSur-icon-theme.git /tmp/WhiteSur-icon-theme
+  - bash /tmp/WhiteSur-icon-theme/install.sh -d /usr/share/icons -t default
+  - rm -rf /tmp/WhiteSur-icon-theme
