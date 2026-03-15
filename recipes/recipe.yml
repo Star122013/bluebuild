@@ -51,18 +51,18 @@ stages:
 # module configuration, executed in order
 # you can include multiple instances of the same module
 modules:
-  - from-file: ../modules/base-files.yml
+  - from-file: modules/base-files.yml
 
-  - from-file: ../modules/niri-copy.yml
+  - from-file: modules/niri-copy.yml
 
-  - from-file: ../modules/kernel.yml
-  - from-file: ../modules/packages.yml
-  - from-file: ../modules/icons-whitesur.yml
-  - from-file: ../modules/fonts.yml
-  - from-file: ../modules/gschema-overrides.yml
-  - from-file: ../modules/brew.yml
-  - from-file: ../modules/chezmoi.yml
-  - from-file: ../modules/flatpaks.yml
-  - from-file: ../modules/flatpak-overrides.yml
-  - from-file: ../modules/os-release.yml
-  - from-file: ../modules/signing.yml
+  - from-file: modules/kernel.yml
+  - from-file: modules/packages.yml
+  - from-file: modules/icons-whitesur.yml
+  - from-file: modules/fonts.yml
+  - from-file: modules/gschema-overrides.yml
+  - from-file: modules/brew.yml
+  - from-file: modules/chezmoi.yml
+  - from-file: modules/flatpaks.yml
+  - from-file: modules/flatpak-overrides.yml
+  - from-file: modules/os-release.yml
+  - from-file: modules/signing.yml
