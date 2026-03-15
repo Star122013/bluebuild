@@ -1,0 +1,10 @@
+---
+# yaml-language-server: $schema=https://schema.blue-build.org/module-v1.json
+
+type: chezmoi
+repository: "https://github.com/Star122013/dotfiles"
+branch: "chezmoi"
+all-users: false
+file-conflict-policy: skip
+run-every: "1d"
+wait-after-boot: "5m"

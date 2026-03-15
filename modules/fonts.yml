@@ -1,7 +1,6 @@
 type: fonts
 fonts:
   nerd-fonts:
-    - CosmicShannsMono
     - JetBrainsMono
     - NerdFontsSymbolsOnly
   google-fonts:
