@@ -47,11 +47,6 @@ install:
     - google-noto-sans-cjk-fonts
     - google-noto-serif-cjk-fonts
     - google-noto-emoji-color-fonts
-    # quickshell
-    - quickshell-git
-    - qt6-qt5compat
-    - qt5-qtsvg
-    - qt6-qtsvg
     # portal
     - xdg-desktop-portal-gnome
     - xdg-desktop-portal-gtk
