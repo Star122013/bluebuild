@@ -64,4 +64,5 @@ modules:
   - from-file: ../modules/chezmoi.yml
   - from-file: ../modules/flatpaks.yml
   - from-file: ../modules/flatpak-overrides.yml
+  - from-file: ../modules/os-release.yml
   - from-file: ../modules/signing.yml

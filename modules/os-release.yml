@@ -1,0 +1,9 @@
+---
+# yaml-language-server: $schema=https://schema.blue-build.org/module-v1.json
+
+type: os-release
+properties:
+  NAME: "Niri Pulse"
+  PRETTY_NAME: "Niri Pulse(Fedora with BlueBuild)"
+  HOME_URL: "https://github.com/Star122013/bluebuild"
+  DOCUMENTATION_URL: "https://blue-build.org"

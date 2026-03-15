@@ -75,3 +75,17 @@ remove:
     - okular
     - plasma-discover
     - spectacle
+    # strip extra KDE user apps/welcome glue, keep only desktop shell core
+    - kde-welcome
+    - xwaylandvideobridge
+    - kcharselect
+    - kcolorchooser
+    - kfind
+    - kolourpaint
+    - krdc
+    - krfb
+    - kwrite
+    - kmahjongg
+    - kmines
+    - kpat
+    - skanpage
