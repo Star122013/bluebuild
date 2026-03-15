@@ -5,6 +5,7 @@ type: dnf
 repos:
   copr:
     - atim/starship
+    - alternateved/cliphist
     - leloubil/wl-clip-persist
     - liusen/Throne
     - aldantanneo/jj-vcs

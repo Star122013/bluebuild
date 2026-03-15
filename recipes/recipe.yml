@@ -65,7 +65,6 @@ modules:
 
   - from-file: modules/kernel.yml
   - from-file: modules/packages.yml
-  - from-file: modules/config-skel.yml
   - from-file: modules/brew.yml
   - from-file: modules/flatpaks.yml
   - from-file: modules/flatpak-overrides.yml
