@@ -12,6 +12,6 @@ fonts:
     - name: MapleMono
       url: https://github.com/subframe7536/maple-font/releases/download/v7.9/MapleMono-NF-CN.zip
     - name: LXGW
-     url: https://github.com/lxgw/LxgwWenkaiGB/releases/download/v1.522-rc4/lxgw-wenkai-gb-v1.522-rc4.zip
+      url: https://github.com/lxgw/LxgwWenkaiGB/releases/download/v1.522-rc4/lxgw-wenkai-gb-v1.522-rc4.zip
 
 
