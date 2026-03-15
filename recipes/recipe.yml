@@ -57,6 +57,7 @@ modules:
 
   - from-file: modules/kernel.yml
   - from-file: modules/packages.yml
+  - from-file: modules/grub-theme-bsol.yml
   - from-file: modules/icons-whitesur.yml
   - from-file: modules/fonts.yml
   - from-file: modules/gschema-overrides.yml
