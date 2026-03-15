@@ -3,6 +3,8 @@
 
 type: dnf
 repos:
+  files:
+    - https://github.com/terrapkg/subatomic-repos/raw/main/terra.repo
   copr:
     - atim/starship
     - alternateved/cliphist
@@ -15,6 +17,8 @@ repos:
     - errornointernet/quickshell
 install:
   packages:
+    - terra-release
+    - noctalia-shell
     - Throne
     # editors
     - neovim
