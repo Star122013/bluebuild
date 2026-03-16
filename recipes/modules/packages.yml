@@ -16,6 +16,7 @@ repos:
     - errornointernet/quickshell
     - solopasha/hyprland
     - peterwu/rendezvous
+    - lihaohong/yazi
 install:
   packages:
     - terra-release
@@ -26,6 +27,8 @@ install:
     - helix
     # shell-tools
     - fastfetch
+    - yazi
+    - fzf
     - ripgrep
     - fd-find
     - git
