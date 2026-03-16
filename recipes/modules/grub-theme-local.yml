@@ -7,5 +7,5 @@ repository: "https://github.com/harishnkr/bsol"
 ref: "main"
 theme_dir: "bsol"
 theme_name: "bsol"
-set_grub_theme: true
+set_grub_theme: false
 grub_defaults_file: "/usr/etc/default/grub"

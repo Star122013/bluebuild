@@ -5,6 +5,7 @@ type: dnf
 repos:
   files:
     - https://github.com/terrapkg/subatomic-repos/raw/main/terra.repo
+    - https://sing-box.app/sing-box.repo
   copr:
     - atim/starship
     - alternateved/cliphist
@@ -26,6 +27,7 @@ install:
     - noctalia-shell
     - Throne
     - dae
+    - sing-box
     # editors
     - neovim
     - helix

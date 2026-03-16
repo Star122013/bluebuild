@@ -1,0 +1,98 @@
+global {
+  # tproxy port to listen on. It is NOT a HTTP/SOCKS port, and is just used by eBPF program.
+  # In normal case, you do not need to use it.
+  tproxy_port: 12345
+
+  # 将其设置为 true 以保护 tproxy 端口免受未经请求的流量的影响。将其设置为 false 以允许用户使用自我管理iptables tproxy
+  tproxy_port_protect: true
+
+  log_level: warning
+
+  # 拉取订阅前禁用等待网络
+  disable_waiting_network: false
+
+  # 绑定的wan口
+  wan_interface: auto
+  lan_interface: docker0
+
+  # domain domain+ domain++ ip 四种模式
+  dial_mode: domain
+
+  allow_insecure: false
+
+  auto_config_kernel_parameter: true
+}
+# 订阅
+subscription {
+  # 在下面填入你的订阅链接。
+}
+
+node {
+  'socks5://127.0.0.1:2080'
+}
+
+dns {
+  upstream {
+    alidns: 'udp://dns.alidns.com:53'
+    googledns: 'tcp+udp://dns.google.com:53'
+  }
+  routing {
+    request {
+      fallback: alidns
+    }
+    response {
+      upstream(googledns) -> accept
+      !qname(geosite:cn) && ip(geoip:private) -> googledns
+      fallback: accept
+    }
+  }
+}
+group {
+  proxy_0 {
+    policy: fixed(0)
+  }
+}
+# 参考 https://github.com/daeuniverse/dae/blob/main/docs/routing.md
+routing {
+  #pname(dnsmasq, systemd-resolved) && l4proto(udp) && dport(53) -> must_direct
+  pname(NetworkManager) -> direct
+  pname(mihomo) -> must_direct
+  pname(flclash) -> must_direct
+  pname(clash) -> must_direct
+  pname(clash-meta) -> must_direct
+
+  pname(sing-box) -> must_direct
+  pname(throne) -> must_direct
+  pname(Throne) -> must_direct
+
+  # 需要指定代理的网站或进程
+  domain(suffix: github.com) -> proxy_0
+
+  # AI
+  # domain(suffix: chatgpt.com) -> proxy_AI
+  # domain(suffix: openai.com) -> proxy_AI
+  # domain(suffix: google.com) -> proxy_AI
+
+  # block
+  l4proto(udp) && dport(443) -> block
+
+  # 需要指定直连的网站或进程
+  pname(qbittorrent) -> direct
+  domain(suffix: firefox.com) -> direct
+  domain(suffix: push.services.mozilla.com) -> direct
+  domain(suffix: minecraft.net) -> direct
+  domain(suffix: microsoftonline.com) -> direct
+  domain(suffix: immersivetranslate.com) -> direct
+  domain(full: api.bilibili.com) -> direct
+  domain(suffix: bilibili.com) -> direct
+  domain(suffix: archlinux.org) -> direct
+  domain(suffix: cm.steampowered.com) -> direct
+  domain(suffix: steamserver.net) -> direct
+
+  dip(224.0.0.0/3, 'ff00::/8') -> direct
+  dip(geoip:private) -> direct
+  dip(geoip:cn) -> direct
+  domain(geosite:cn) -> direct
+
+  fallback: proxy_0
+}

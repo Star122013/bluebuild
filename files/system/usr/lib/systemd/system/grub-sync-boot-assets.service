@@ -1,0 +1,13 @@
+[Unit]
+Description=Sync GRUB theme and custom menu entries into /boot
+ConditionPathIsDirectory=/boot/grub2
+Wants=local-fs.target
+After=local-fs.target
+
+[Service]
+Type=oneshot
+ExecStart=/usr/libexec/bluebuild/grub-sync-boot-assets
+TimeoutSec=30
+
+[Install]
+WantedBy=multi-user.target

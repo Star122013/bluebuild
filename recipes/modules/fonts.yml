@@ -7,6 +7,7 @@ fonts:
     - Roboto
     - Noto Sans
     - Noto Sans Simplified Chinese
+    - Noto Color Emoji
   url-fonts:
     - name: MapleMono
       url: https://github.com/subframe7536/maple-font/releases/download/v7.9/MapleMono-NF-CN.zip

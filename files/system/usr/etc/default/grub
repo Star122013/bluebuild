@@ -6,8 +6,8 @@ GRUB_TIMEOUT_STYLE=menu
 GRUB_DEFAULT=saved
 GRUB_SAVEDEFAULT=true
 GRUB_DISABLE_SUBMENU=true
-GRUB_TERMINAL_OUTPUT="console"
-GRUB_THEME="/usr/share/grub/themes/bsol/theme.txt"
+GRUB_TERMINAL_OUTPUT="gfxterm"
+GRUB_THEME="/boot/grub2/themes/bsol/theme.txt"
 
 # Balanced desktop profile:
 # - keep splash and quiet output

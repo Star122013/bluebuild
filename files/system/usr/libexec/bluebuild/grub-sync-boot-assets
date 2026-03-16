@@ -1,0 +1,46 @@
+#!/usr/bin/env bash
+
+set -euo pipefail
+
+theme_name="bsol"
+boot_grub_dir="/boot/grub2"
+theme_src="/usr/share/grub/themes/${theme_name}"
+theme_dst_dir="${boot_grub_dir}/themes"
+theme_dst="${theme_dst_dir}/${theme_name}"
+theme_txt="${theme_dst}/theme.txt"
+custom_src="/usr/etc/grub.d/40_custom"
+custom_dst="${boot_grub_dir}/custom.cfg"
+user_cfg="${boot_grub_dir}/user.cfg"
+
+if [[ ! -d "${boot_grub_dir}" ]]; then
+  echo "grub-sync: '${boot_grub_dir}' is missing, skipping."
+  exit 0
+fi
+
+if [[ -d "${theme_src}" ]]; then
+  install -d "${theme_dst_dir}"
+  rm -rf "${theme_dst}"
+  cp -a "${theme_src}" "${theme_dst}"
+
+  if [[ -f "${theme_txt}" ]]; then
+    {
+      echo "terminal_output gfxterm"
+      printf 'set theme=/grub2/themes/%s/theme.txt\n' "${theme_name}"
+    } > "${user_cfg}"
+  else
+    echo "grub-sync: '${theme_txt}' is missing after copy, skipping user.cfg update."
+  fi
+else
+  echo "grub-sync: theme source '${theme_src}' not found, skipping theme sync."
+fi
+
+if [[ -f "${custom_src}" ]]; then
+  if head -n 2 "${custom_src}" | grep -q '^exec tail -n +3 \$0$'; then
+    tail -n +3 "${custom_src}" > "${custom_dst}"
+    chmod 0644 "${custom_dst}"
+  else
+    install -m 0644 "${custom_src}" "${custom_dst}"
+  fi
+else
+  echo "grub-sync: '${custom_src}' not found, skipping custom.cfg sync."
+fi
