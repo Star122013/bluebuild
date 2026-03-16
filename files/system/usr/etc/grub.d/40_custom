@@ -3,10 +3,17 @@ exec tail -n +3 $0
 # This file provides an easy place for custom GRUB menu entries.
 # Run grub2-mkconfig on the installed system after editing entries below.
 #
-# Example UEFI chainload entry:
-# menuentry "Windows Boot Manager (UEFI)" {
-#     insmod part_gpt
-#     insmod fat
-#     search --no-floppy --fs-uuid --set=root XXXX-XXXX
-#     chainloader /EFI/Microsoft/Boot/bootmgfw.efi
-# }
+
+menuentry "Windows Boot Manager (UEFI)" --class windows --class os {
+    insmod part_gpt
+    insmod fat
+
+    if search --no-floppy --file --set=root /EFI/Microsoft/Boot/bootmgfw.efi; then
+        chainloader ($root)/EFI/Microsoft/Boot/bootmgfw.efi
+    elif search --no-floppy --file --set=root /EFI/Microsoft/Boot/bootmgr.efi; then
+        chainloader ($root)/EFI/Microsoft/Boot/bootmgr.efi
+    else
+        echo "Windows EFI boot loader not found."
+        sleep 2
+    fi
+}
