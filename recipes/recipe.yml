@@ -29,6 +29,8 @@ modules:
 
   - from-file: modules/kernel.yml
   - from-file: modules/packages.yml
+  - from-file: modules/polkit-agent.yml
+  - from-file: modules/kde-cleanup.yml
   - from-file: modules/grub-theme-local.yml
   - from-file: modules/icons-whitesur.yml
   - from-file: modules/fonts.yml

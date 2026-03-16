@@ -1,0 +1,7 @@
+---
+# yaml-language-server: $schema=https://schema.blue-build.org/module-v1.json
+
+type: script
+snippets:
+  - install -d /etc/systemd/user/default.target.wants
+  - ln -sf /usr/lib/systemd/user/plasma-polkit-agent.service /etc/systemd/user/default.target.wants/plasma-polkit-agent.service

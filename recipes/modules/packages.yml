@@ -27,6 +27,8 @@ install:
     - helix
     # shell-tools
     - fastfetch
+    - bat
+    - zoxide
     - yazi
     - fzf
     - ripgrep
@@ -40,6 +42,7 @@ install:
     - gnome-keyring
     - nautilus
     - os-prober
+    - polkit-kde
     # runtime libs for custom-built niri (source builds don't auto-pull RPM deps)
     - libinput
     - libseat
@@ -70,6 +73,7 @@ remove:
     - dolphin
     - dragon
     - elisa-player
+    - kjournald
     - gwenview
     - kate
     - kcalc
@@ -79,7 +83,7 @@ remove:
     - plasma-discover
     - spectacle
     # strip extra KDE user apps/welcome glue, keep only desktop shell core
-    - kde-welcome
+    - plasma-welcome
     - xwaylandvideobridge
     - kcharselect
     - kcolorchooser

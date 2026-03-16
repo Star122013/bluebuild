@@ -1,0 +1,7 @@
+---
+# yaml-language-server: $schema=https://schema.blue-build.org/module-v1.json
+
+type: script
+snippets:
+  - rm -f /usr/share/applications/org.kde.plasma.emojier.desktop
+  - rm -f /usr/share/kglobalaccel/org.kde.plasma.emojier.desktop
