@@ -1,0 +1,11 @@
+---
+# yaml-language-server: $schema=https://schema.blue-build.org/module-v1.json
+
+type: grub-theme
+source: local
+repository: "https://github.com/harishnkr/bsol"
+ref: "main"
+theme_dir: "bsol"
+theme_name: "bsol"
+set_grub_theme: true
+grub_defaults_file: "/usr/etc/default/grub"

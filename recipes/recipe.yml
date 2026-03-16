@@ -13,40 +13,12 @@ stages:
   - name: niri-build
     from: registry.fedoraproject.org/fedora:43
     modules:
-      - type: script
-        snippets:
-          - >-
-            dnf install -y
-            cargo
-            clang
-            gcc
-            git
-            rustc
-            cairo-gobject-devel
-            dbus-devel
-            fontconfig-devel
-            libXcursor-devel
-            libadwaita-devel
-            libdisplay-info-devel
-            libinput-devel
-            libseat-devel
-            libudev-devel
-            libxkbcommon-devel
-            mesa-libEGL-devel
-            mesa-libgbm-devel
-            pango-devel
-            pipewire-devel
-            systemd-devel
-            wayland-devel
-          - git clone --branch wip/branch --depth 1 https://github.com/niri-wm/niri.git /tmp/niri
-          - cargo build --manifest-path /tmp/niri/Cargo.toml --release --bin niri
-          - mkdir -p /out/runtime
-          - install -Dm755 /tmp/niri/target/release/niri /out/niri
-          - install -Dm755 /tmp/niri/resources/niri-session /out/runtime/usr/bin/niri-session
-          - install -Dm644 /tmp/niri/resources/niri.desktop /out/runtime/usr/share/wayland-sessions/niri.desktop
-          - install -Dm644 /tmp/niri/resources/niri-portals.conf /out/runtime/usr/share/xdg-desktop-portal/niri-portals.conf
-          - install -Dm644 /tmp/niri/resources/niri.service /out/runtime/usr/lib/systemd/user/niri.service
-          - install -Dm644 /tmp/niri/resources/niri-shutdown.target /out/runtime/usr/lib/systemd/user/niri-shutdown.target
+      - type: niri-build
+        source: local
+        repository: "https://github.com/niri-wm/niri.git"
+        branch: "wip/branch"
+        output_bin: "/out/niri"
+        output_runtime: "/out/runtime"
 
 # module configuration, executed in order
 # you can include multiple instances of the same module
@@ -57,7 +29,7 @@ modules:
 
   - from-file: modules/kernel.yml
   - from-file: modules/packages.yml
-  - from-file: modules/grub-theme-bsol.yml
+  - from-file: modules/grub-theme-local.yml
   - from-file: modules/icons-whitesur.yml
   - from-file: modules/fonts.yml
   - from-file: modules/gschema-overrides.yml

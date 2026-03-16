@@ -1,9 +1,0 @@
----
-# yaml-language-server: $schema=https://schema.blue-build.org/module-v1.json
-
-type: script
-snippets:
-  - git clone --depth 1 https://github.com/harishnkr/bsol /tmp/grub-theme-bsol
-  - install -d /usr/share/grub/themes
-  - cp -a /tmp/grub-theme-bsol/bsol /usr/share/grub/themes/bsol
-  - rm -rf /tmp/grub-theme-bsol

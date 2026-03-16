@@ -1,0 +1,11 @@
+name: grub-theme
+shortdesc: Install a GRUB theme from a Git repository and optionally set GRUB_THEME.
+example: |
+  type: grub-theme
+  source: local
+  repository: https://github.com/harishnkr/bsol
+  ref: main
+  theme_dir: bsol
+  theme_name: bsol
+  set_grub_theme: true
+  grub_defaults_file: /usr/etc/default/grub
