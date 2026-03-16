@@ -1,13 +1,13 @@
 #!/usr/bin/env nu
 
-def cfg_get [cfg: record, key: string, fallback: any]: any {
+def cfg_get [cfg, key, fallback] {
   $cfg
-    | get -i $key
+    | get -o $key
     | default $fallback
 }
 
-def main [config: string]: nothing -> nothing {
-  let cfg = $config | from json
+def main [config] {
+  let cfg = ($config | from json)
 
   let repository = (cfg_get $cfg "repository" "https://github.com/niri-wm/niri.git")
   let branch = (cfg_get $cfg "branch" "wip/branch")

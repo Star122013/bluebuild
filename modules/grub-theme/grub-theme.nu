@@ -1,22 +1,22 @@
 #!/usr/bin/env nu
 
-def cfg_get [cfg: record, key: string, fallback: any]: any {
+def cfg_get [cfg, key, fallback] {
   $cfg
-    | get -i $key
+    | get -o $key
     | default $fallback
 }
 
-def fail [msg: string]: nothing -> nothing {
+def fail [msg] {
   error make { msg: $msg }
 }
 
-def main [config: string]: nothing -> nothing {
-  let cfg = $config | from json
+def main [config] {
+  let cfg = ($config | from json)
 
   let repository = (
     $cfg
-      | get -i repository
-      | default ($cfg | get -i repo | default "")
+      | get -o repository
+      | default ($cfg | get -o repo | default "")
   )
   if ($repository | is-empty) {
     fail "grub-theme: 'repository' is required"
@@ -26,7 +26,7 @@ def main [config: string]: nothing -> nothing {
   let theme_dir = (cfg_get $cfg "theme_dir" "bsol")
   let theme_name = (
     $cfg
-      | get -i theme_name
+      | get -o theme_name
       | default $theme_dir
   )
   let install_root = (cfg_get $cfg "install_root" "/usr/share/grub/themes")
