@@ -1,0 +1,9 @@
+---
+# yaml-language-server: $schema=https://schema.blue-build.org/module-v1.json
+
+type: script
+snippets:
+  - git clone --depth 1 --branch v0.1 https://github.com/Reverier-Xu/Ori-fcitx5.git /tmp/Ori-fcitx5
+  - install -d /usr/share/fcitx5/themes
+  - cp -r /tmp/Ori-fcitx5/OriDark /tmp/Ori-fcitx5/OriLight /usr/share/fcitx5/themes/
+  - rm -rf /tmp/Ori-fcitx5

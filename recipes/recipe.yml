@@ -33,6 +33,7 @@ modules:
   - from-file: modules/kde-cleanup.yml
   - from-file: modules/grub-theme-local.yml
   - from-file: modules/icons-whitesur.yml
+  - from-file: modules/fcitx5-theme-ori.yml
   - from-file: modules/fonts.yml
   - from-file: modules/gschema-overrides.yml
   - from-file: modules/brew.yml
