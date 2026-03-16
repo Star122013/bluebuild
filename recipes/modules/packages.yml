@@ -17,6 +17,8 @@ repos:
     - solopasha/hyprland
     - peterwu/rendezvous
     - lihaohong/yazi
+    - jkinred/satty
+    - dulikiles/vicinae
 install:
   packages:
     - terra-release
@@ -43,6 +45,10 @@ install:
     - nautilus
     - os-prober
     - polkit-kde
+    - grim
+    - slurp
+    - satty
+    - vicinae
     # runtime libs for custom-built niri (source builds don't auto-pull RPM deps)
     - libinput
     - libseat
