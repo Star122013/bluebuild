@@ -19,11 +19,13 @@ repos:
     - lihaohong/yazi
     - jkinred/satty
     - dulikiles/vicinae
+    - zhullyb/v2rayA
 install:
   packages:
     - terra-release
     - noctalia-shell
     - Throne
+    - dae
     # editors
     - neovim
     - helix
