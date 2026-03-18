@@ -25,7 +25,7 @@ stages:
       - type: pijul-build
         source: local
         repository: "https://nest.pijul.com/pijul/pijul"
-        branch: "main"
+        channel: "main"
         features: "git"
         output_bin: "/out/pijul"
 
