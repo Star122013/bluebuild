@@ -12,7 +12,3 @@ modules:
     src: /out/runtime
     dest: /
 
-  - type: copy
-    from: pijul-build
-    src: /out/pijul
-    dest: /usr/bin/
