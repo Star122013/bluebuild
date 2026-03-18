@@ -76,10 +76,14 @@ def main [config] {
     libzstd-devel 
     pkgconfig
     xxhash-devel
+    rustup
   ]
 
   ^dnf install -y ...($dnf_deps)
-
+  ^rustup rustup default stable
+  ^rustup default stable
+  ^cargo install pijul --version "~1.0.0-beta"
+  ^export PATH="\$PATH:$HOME/.cargo/bin/"
   ^rm -rf $clone_dir
 
   mut clone_args = [clone]
