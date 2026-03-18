@@ -1,0 +1,8 @@
+name: pijul-build
+shortdesc: Build pijul from source in a build stage and export /out artifacts.
+example: |
+  type: pijul-build
+  source: local
+  repository: https://nest.pijul.com/pijul/pijul:main/SXEYMYF7P4RZM.FS4A6
+  features: git
+  output_bin: /out/pijul
