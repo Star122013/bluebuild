@@ -56,7 +56,7 @@ def main [config] {
   } else {
     $parsed_ref.0.remote
   }
-  let inferred_channel = if ($parsed_ref | is-empty) { "main" } else { $parsed_ref.0.ref_channel }
+  let inferred_channel = if ($parsed_ref | is-empty) { "" } else { $parsed_ref.0.ref_channel }
   let inferred_state = if ($parsed_ref | is-empty) { "" } else { $parsed_ref.0.ref_state }
 
   let channel = (
@@ -106,7 +106,19 @@ def main [config] {
     $clone_args = ($clone_args | append "--state" | append $state)
   }
   $clone_args = ($clone_args | append $repository | append $clone_dir)
-  run-external $bootstrap_pijul ...$clone_args
+
+  let can_retry_without_channel = (($channel | is-not-empty) and ($state | is-empty))
+  if $can_retry_without_channel {
+    try {
+      run-external $bootstrap_pijul ...$clone_args
+    } catch {|err|
+      print $"pijul-build: clone with --channel '($channel)' failed, retrying without --channel"
+      ^rm -rf $clone_dir
+      run-external $bootstrap_pijul clone $repository $clone_dir
+    }
+  } else {
+    run-external $bootstrap_pijul ...$clone_args
+  }
 
   mut cargo_args = [
     build
