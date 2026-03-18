@@ -70,18 +70,11 @@ def main [config] {
   let features = (normalize_features (cfg_get $cfg "features" "git"))
 
   let dnf_deps = [
-    cargo
-    clang
-    gcc
-    git
-    make
-    pijul
-    pkgconf-pkg-config
-    rustc
-    dbus-devel
-    libsodium-devel
-    libzstd-devel
-    openssl-devel
+    clang-devel 
+    openssl-devel 
+    libsodium-devel 
+    libzstd-devel 
+    pkgconfig
     xxhash-devel
   ]
 
