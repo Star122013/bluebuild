@@ -68,22 +68,34 @@ def main [config] {
   let clone_dir = (cfg_get $cfg "clone_dir" "/tmp/pijul")
   let output_bin = (cfg_get $cfg "output_bin" "/out/pijul")
   let features = (normalize_features (cfg_get $cfg "features" "git"))
+  let bootstrap_root = (cfg_get $cfg "bootstrap_root" "/tmp/pijul-bootstrap")
+  let bootstrap_version = (cfg_get $cfg "bootstrap_version" "~1.0.0-beta")
 
   let dnf_deps = [
-    clang-devel 
-    openssl-devel 
-    libsodium-devel 
-    libzstd-devel 
-    pkgconfig
+    cargo
+    clang
+    gcc
+    git
+    make
+    pkgconf-pkg-config
+    rustc
+    dbus-devel
+    libsodium-devel
+    libzstd-devel
+    openssl-devel
     xxhash-devel
-    rustup
   ]
 
   ^dnf install -y ...($dnf_deps)
-  ^rustup rustup default stable
-  ^rustup default stable
-  ^cargo install pijul --version "~1.0.0-beta"
-  ^export PATH="\$PATH:$HOME/.cargo/bin/"
+
+  ^rm -rf $bootstrap_root
+  ^cargo install --locked --root $bootstrap_root --version $bootstrap_version pijul
+
+  let bootstrap_pijul = ([$bootstrap_root "bin" "pijul"] | path join)
+  if not ($bootstrap_pijul | path exists) {
+    fail $"pijul-build: bootstrap binary not found at '($bootstrap_pijul)' after cargo install"
+  }
+
   ^rm -rf $clone_dir
 
   mut clone_args = [clone]
@@ -94,7 +106,7 @@ def main [config] {
     $clone_args = ($clone_args | append "--state" | append $state)
   }
   $clone_args = ($clone_args | append $repository | append $clone_dir)
-  ^pijul ...$clone_args
+  run-external $bootstrap_pijul ...$clone_args
 
   mut cargo_args = [
     build
