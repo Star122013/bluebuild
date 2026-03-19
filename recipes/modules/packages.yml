@@ -40,6 +40,7 @@ install:
     - ImageMagick
     - qt6-qtmultimedia
     - cava
+    # network
     - Throne
     - dae
     - sing-box
@@ -47,6 +48,7 @@ install:
     - neovim
     - helix
     # shell-tools
+    - mpd
     - fastfetch
     - bat
     - zoxide

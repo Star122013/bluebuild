@@ -19,6 +19,14 @@ stages:
         branch: "wip/branch"
         output_bin: "/out/niri"
         output_runtime: "/out/runtime"
+  - name: rmpc-build
+    from: registry.fedoraproject.org/fedora:43
+    modules:
+      - type: rmpc-build
+        source: local
+        repository: "https://github.com/rmpc/rmpc.git"
+        branch: "master"
+        output_bin: "/out/rmpc"
 
 
 # module configuration, executed in order
@@ -26,7 +34,7 @@ stages:
 modules:
 
   - from-file: modules/build-copy.yml
-
+  - from-file: modules/bling.yml
   - from-file: modules/kernel.yml
   - from-file: modules/packages.yml
   - from-file: modules/base-files.yml

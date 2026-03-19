@@ -11,3 +11,8 @@ modules:
     from: niri-build
     src: /out/runtime
     dest: /
+
+  - type: copy
+    from: rmpc-build
+    src: /out/rmpc
+    dest: /usr/bin/
