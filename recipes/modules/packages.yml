@@ -7,7 +7,9 @@ repos:
     - https://github.com/terrapkg/subatomic-repos/raw/main/terra.repo
     - https://sing-box.app/sing-box.repo
   copr:
+    - qwerhyy/misc-packages 
     - atim/starship
+    - qwerhyy/misc-packages 
     - alternateved/cliphist
     - leloubil/wl-clip-persist
     - liusen/Throne
@@ -30,7 +32,14 @@ install:
   packages:
     - https://github.com/chen08209/FlClash/releases/download/v0.8.92/FlClash-0.8.92-linux-amd64.rpm
     - terra-release
-    - noctalia-shell
+    - noctalia-shell-git
+    - matugen
+    - noctalia-qs
+    - brightnessctl
+    - gpu-screen-recorder
+    - ImageMagick
+    - qt6-qtmultimedia
+    - cava
     - Throne
     - dae
     - sing-box

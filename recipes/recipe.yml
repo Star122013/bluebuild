@@ -19,14 +19,6 @@ stages:
         branch: "wip/branch"
         output_bin: "/out/niri"
         output_runtime: "/out/runtime"
-  - name: pijul-build
-    from: registry.fedoraproject.org/fedora:43
-    modules:
-      - type: pijul-build
-        source: local
-        repository: "https://nest.pijul.com/pijul/pijul"
-        features: "git"
-        output_bin: "/out/pijul"
 
 
 # module configuration, executed in order
