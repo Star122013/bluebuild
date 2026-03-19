@@ -24,7 +24,7 @@ stages:
     modules:
       - type: rmpc-build
         source: local
-        repository: "https://github.com/rmpc/rmpc.git"
+        repository: "https://github.com/mierak/rmpc.git"
         branch: "master"
         output_bin: "/out/rmpc"
 

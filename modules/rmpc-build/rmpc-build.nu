@@ -9,7 +9,7 @@ def cfg_get [cfg, key, fallback] {
 def main [config] {
   let cfg = ($config | from json)
 
-  let repository = (cfg_get $cfg "repository" "https://github.com/rmpc/rmpc.git")
+  let repository = (cfg_get $cfg "repository" "https://github.com/mierak/rmpc.git")
   let branch = (cfg_get $cfg "branch" "master")
   let clone_dir = (cfg_get $cfg "clone_dir" "/tmp/rmpc")
   let output_bin = (cfg_get $cfg "output_bin" "/out/rmpc")
