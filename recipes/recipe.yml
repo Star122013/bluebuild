@@ -19,7 +19,7 @@ stages:
         branch: "wip/branch"
         output_bin: "/out/niri"
         output_runtime: "/out/runtime"
-  
+
 
 # module configuration, executed in order
 # you can include multiple instances of the same module

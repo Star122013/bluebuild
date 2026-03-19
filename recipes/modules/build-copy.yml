@@ -11,4 +11,3 @@ modules:
     from: niri-build
     src: /out/runtime
     dest: /
-
