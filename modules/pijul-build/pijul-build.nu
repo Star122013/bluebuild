@@ -56,15 +56,13 @@ def main [config] {
   } else {
     $parsed_ref.0.remote
   }
-  let inferred_channel = if ($parsed_ref | is-empty) { "" } else { $parsed_ref.0.ref_channel }
-  let inferred_state = if ($parsed_ref | is-empty) { "" } else { $parsed_ref.0.ref_state }
 
   let channel = (
     $cfg
       | get -o channel
-      | default (cfg_get $cfg "branch" $inferred_channel)
+      | default (cfg_get $cfg "branch" "main")
   )
-  let state = (cfg_get $cfg "state" $inferred_state)
+  let state = (cfg_get $cfg "state" "")
   let clone_dir = (cfg_get $cfg "clone_dir" "/tmp/pijul")
   let output_bin = (cfg_get $cfg "output_bin" "/out/pijul")
   let features = (normalize_features (cfg_get $cfg "features" "git"))
