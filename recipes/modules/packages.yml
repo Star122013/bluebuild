@@ -9,6 +9,7 @@ repos:
   copr:
     - qwerhyy/misc-packages 
     - atim/starship
+    - jdxcode/mise
     - qwerhyy/misc-packages 
     - alternateved/cliphist
     - leloubil/wl-clip-persist
@@ -48,6 +49,7 @@ install:
     - neovim
     - helix
     # shell-tools
+    - mise
     - mpd
     - fastfetch
     - bat
