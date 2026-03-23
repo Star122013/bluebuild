@@ -99,8 +99,6 @@ install:
     - qt6ct
     - adw-gtk3-theme
     - bibata-cursor-themes
-    # game
-    - steam
 remove:
   packages:
     # example: removing firefox (in favor of the flatpak)
