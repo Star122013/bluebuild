@@ -50,6 +50,9 @@ install:
     # editors
     - neovim
     - helix
+    # python
+    - uv
+    - pixi
     # shell-tools
     - mise
     - mpd
