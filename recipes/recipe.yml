@@ -71,7 +71,13 @@ stages:
         branch: "steel-event-system"
         cargo_bin: "hx"
         output_bin: "/out/hx"
-        build_cmd: "cargo xtask steel"        
+        build_cmd:
+          - cargo
+          - run
+          - --package
+          - xtask
+          - --
+          - steel
 
 
 # module configuration, executed in order

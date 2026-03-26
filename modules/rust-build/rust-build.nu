@@ -93,13 +93,19 @@ def main [config] {
       if ($cmd | is-empty) {
         fail "rust-build: 'build_cmd' list cannot start with an empty command"
       }
-      run-external $cmd ...$args
+      do {
+        cd $clone_dir
+        run-external $cmd ...$args
+      }
     }
   } else if ($build_cmd_type == "string") {
     if ($build_cmd | is-empty) {
       run_default_build $cargo_manifest $cargo_bin
     } else {
-      ^bash -lc $build_cmd
+      do {
+        cd $clone_dir
+        ^bash -lc $build_cmd
+      }
     }
   } else {
     fail "rust-build: 'build_cmd' must be a string or list"
