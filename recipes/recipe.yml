@@ -13,20 +13,65 @@ stages:
   - name: niri-build
     from: registry.fedoraproject.org/fedora:43
     modules:
-      - type: niri-build
+      - type: rust-build
         source: local
         repository: "https://github.com/niri-wm/niri.git"
         branch: "wip/branch"
+        cargo_bin: "niri"
         output_bin: "/out/niri"
-        output_runtime: "/out/runtime"
+        dnf_deps:
+          - cairo-gobject-devel
+          - dbus-devel
+          - fontconfig-devel
+          - libXcursor-devel
+          - libadwaita-devel
+          - libdisplay-info-devel
+          - libinput-devel
+          - libseat-devel
+          - libudev-devel
+          - libxkbcommon-devel
+          - mesa-libEGL-devel
+          - mesa-libgbm-devel
+          - pango-devel
+          - pipewire-devel
+          - systemd-devel
+          - wayland-devel
+        # Keep the old niri-build runtime layout under /out/runtime for later copy steps.
+        artifacts:
+          - source: resources/niri-session
+            dest: /out/runtime/usr/bin/niri-session
+            mode: "755"
+          - source: resources/niri.desktop
+            dest: /out/runtime/usr/share/wayland-sessions/niri.desktop
+            mode: "644"
+          - source: resources/niri-portals.conf
+            dest: /out/runtime/usr/share/xdg-desktop-portal/niri-portals.conf
+            mode: "644"
+          - source: resources/niri.service
+            dest: /out/runtime/usr/lib/systemd/user/niri.service
+            mode: "644"
+          - source: resources/niri-shutdown.target
+            dest: /out/runtime/usr/lib/systemd/user/niri-shutdown.target
+            mode: "644"
   - name: rmpc-build
     from: registry.fedoraproject.org/fedora:43
     modules:
-      - type: rmpc-build
+      - type: rust-build
         source: local
         repository: "https://github.com/mierak/rmpc.git"
         branch: "master"
+        cargo_bin: "rmpc"
         output_bin: "/out/rmpc"
+  - name: helix-steel
+    from: registry.fedoraproject.org/fedora:43
+    modules:
+      - type: rust-build
+        source: local
+        repository: "https://github.com/mattwparas/helix.git"
+        branch: "steel-event-system"
+        cargo_bin: "hx"
+        output_bin: "/out/hx"
+        build_cmd: "cargo xtask steel"        
 
 
 # module configuration, executed in order

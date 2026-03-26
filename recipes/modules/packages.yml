@@ -49,7 +49,7 @@ install:
     - sing-box
     # editors
     - neovim
-    - helix
+    # - helix
     # python
     - uv
     - pixi

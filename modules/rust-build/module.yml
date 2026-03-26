@@ -1,0 +1,19 @@
+name: rust-build
+shortdesc: Build a Rust binary from source in a build stage and export /out artifacts.
+example: |
+  type: rust-build
+  source: local
+  repository: https://github.com/mierak/rmpc.git
+  branch: master
+  cargo_bin: rmpc
+  output_bin: /out/rmpc
+  # Optional: fully override the compile command.
+  # Prefer list form for predictable argument handling:
+  # build_cmd:
+  #   - cargo
+  #   - build
+  #   - --manifest-path
+  #   - /tmp/rust-build/Cargo.toml
+  #   - --release
+  #   - --bin
+  #   - rmpc
