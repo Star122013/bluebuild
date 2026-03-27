@@ -18,10 +18,6 @@ modules:
     dest: /usr/bin/
 
   - type: copy
-    from: helix-steel
-    src: /out/hx
-    dest: /usr/bin
-  - type: copy
     from: flow-build
     src: /out/flow
     dest: /usr/bin
