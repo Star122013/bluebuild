@@ -1,0 +1,15 @@
+name: zig-build
+shortdesc: Build a Zig binary from source in a build stage and export /out artifacts.
+example: |
+  type: zig-build
+  source: local
+  repository: https://github.com/oven-sh/bun.git
+  branch: main
+  zig_bin: bun
+  output_bin: /out/bun
+  # Optional: fully override the compile command.
+  # Prefer list form for predictable argument handling:
+  # build_cmd:
+  #   - zig
+  #   - build
+  #   - -Doptimize=ReleaseFast

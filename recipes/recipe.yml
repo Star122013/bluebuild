@@ -84,6 +84,19 @@ stages:
           - xtask
           - --
           - steel
+  - name: flow-build
+    from: registry.fedoraproject.org/fedora:43
+    modules:
+      - type: zig-build
+        source: local
+        repository: "https://github.com/neurocyte/flow.git"
+        branch: "master"
+        zig_bin: "flow"
+        output_bin: "/out/flow"
+        build_cmd:
+          - zig
+          - build
+          - -Doptimize=ReleaseSafe
 
 
 # module configuration, executed in order
