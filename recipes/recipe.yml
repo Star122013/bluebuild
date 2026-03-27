@@ -62,28 +62,6 @@ stages:
         branch: "master"
         cargo_bin: "rmpc"
         output_bin: "/out/rmpc"
-  - name: helix-steel
-    from: registry.fedoraproject.org/fedora:43
-    modules:
-      - type: rust-build
-        source: local
-        repository: "https://github.com/mattwparas/helix.git"
-        branch: "steel-event-system"
-        cargo_bin: "hx"
-        output_bin: "/out/hx"
-        dnf_deps:
-          - perl-core
-          - openssl-devel
-          - pkgconf-pkg-config
-        build_cmd:
-          - env
-          - OPENSSL_NO_VENDOR=1
-          - cargo
-          - run
-          - --package
-          - xtask
-          - --
-          - steel
   - name: flow-build
     from: registry.fedoraproject.org/fedora:43
     modules:
