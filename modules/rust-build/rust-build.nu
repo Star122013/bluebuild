@@ -30,11 +30,28 @@ def run_build [clone_dir, cargo_bin, build_cmd] {
   let home_dir = ($env | get -o HOME | default "/root")
   let cargo_home = ($env | get -o CARGO_HOME | default ([$home_dir ".cargo"] | path join))
   let cargo_bin_dir = ([$cargo_home "bin"] | path join)
-  let current_path = ($env | get -o PATH | default "")
+  let default_system_path = "/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin"
+  let env_columns = ($env | columns)
+  let raw_path = (
+    if ($env_columns | any {|c| $c == "PATH" }) {
+      $env | get PATH
+    } else if ($env_columns | any {|c| $c == "Path" }) {
+      $env | get Path
+    } else {
+      $default_system_path
+    }
+  )
+  let current_path = (
+    if (($raw_path | describe | str starts-with "list<")) {
+      $raw_path | str join ":"
+    } else {
+      $raw_path | into string
+    }
+  )
   # 兼容 xtask 内部调用 `cargo install` 后立刻执行新安装的二进制（例如 forge）
   let path_with_cargo_bin = (
     if ($current_path | is-empty) {
-      $cargo_bin_dir
+      $"($cargo_bin_dir):($default_system_path)"
     } else if (($current_path | split row ":" | any {|p| $p == $cargo_bin_dir })) {
       $current_path
     } else {
