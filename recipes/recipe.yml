@@ -71,7 +71,13 @@ stages:
         branch: "steel-event-system"
         cargo_bin: "hx"
         output_bin: "/out/hx"
+        dnf_deps:
+          - perl-core
+          - openssl-devel
+          - pkgconf-pkg-config
         build_cmd:
+          - env
+          - OPENSSL_NO_VENDOR=1
           - cargo
           - run
           - --package
