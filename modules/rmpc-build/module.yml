@@ -1,8 +1,0 @@
-name: rmpc-build
-shortdesc: Build rmpc
-example: |
-  type: rmpc-build
-  source: local
-  repository: https://github.com/rmpc/rmpc.git
-  branch: master
-  output_bin: /out/rmpc

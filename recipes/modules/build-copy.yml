@@ -16,3 +16,8 @@ modules:
     from: rmpc-build
     src: /out/rmpc
     dest: /usr/bin/
+
+  - type: copy
+    from: flow-build
+    src: /out/flow
+    dest: /usr/bin

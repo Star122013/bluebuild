@@ -1,9 +1,0 @@
-name: niri-build
-shortdesc: Build niri from source in a build stage and export /out artifacts.
-example: |
-  type: niri-build
-  source: local
-  repository: https://github.com/niri-wm/niri.git
-  branch: wip/branch
-  output_bin: /out/niri
-  output_runtime: /out/runtime
