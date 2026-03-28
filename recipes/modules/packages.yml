@@ -26,6 +26,7 @@ repos:
     - zhullyb/v2rayA
     - atim/nushell
     - sneexy/zen-browser
+    - ama1470/kwin-effects-glass
 group-install:
   with-optional: false
   packages:
@@ -91,6 +92,7 @@ install:
     - xdg-desktop-portal-gtk
     - xwayland-satellite
     # misc
+    - kwin-effects-glass
     - kitty
     - kitty-terminfo
     - ghostty
@@ -106,21 +108,16 @@ remove:
     - firefox
     - firefox-langpacks # also remove firefox dependency (not required for all packages, this is a special case)
     # kde apps (keep plasma desktop core, strip common user apps)
-    - ark
-    - dolphin
     - dragon
     - elisa-player
     - kjournald
-    - gwenview
     - kate
     - kcalc
     - khelpcenter
     - konsole
     - okular
-    - plasma-discover
     - spectacle
     # strip extra KDE user apps/welcome glue, keep only desktop shell core
-    - plasma-welcome
     - xwaylandvideobridge
     - kcharselect
     - kcolorchooser
