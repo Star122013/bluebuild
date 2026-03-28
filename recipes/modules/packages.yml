@@ -108,26 +108,9 @@ remove:
     - firefox
     - firefox-langpacks # also remove firefox dependency (not required for all packages, this is a special case)
     # kde apps (keep plasma desktop core, strip common user apps)
-    - dragon
-    - elisa-player
-    - kjournald
-    - kate
-    - kcalc
-    - khelpcenter
     - konsole
     - okular
     - spectacle
     # strip extra KDE user apps/welcome glue, keep only desktop shell core
     - xwaylandvideobridge
-    - kcharselect
-    - kcolorchooser
-    - kfind
-    - kolourpaint
-    - krdc
-    - krfb
-    - kwrite
-    - kmahjongg
-    - kmines
-    - kpat
-    - skanpage
 
