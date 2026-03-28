@@ -20,4 +20,4 @@ modules:
   - type: copy
     from: flow-build
     src: /out/flow
-    dest: /usr/bin
+    dest: /usr/bin/
