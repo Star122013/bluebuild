@@ -9,6 +9,7 @@ repos:
   copr:
     - agriffis/neovim-nightly 
     - qwerhyy/misc-packages 
+    - matinlotfali/KDE-Rounded-Corners
     - atim/starship
     - jdxcode/mise
     - alternateved/cliphist
@@ -93,6 +94,7 @@ install:
     - xdg-desktop-portal-gtk
     - xwayland-satellite
     # misc
+    - kwin-effect-roundcorners
     - kwin-effects-glass
     - kitty
     - kitty-terminfo
