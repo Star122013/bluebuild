@@ -81,16 +81,9 @@ stages:
       - type: zig-build
         source: local
         repository: "https://github.com/neovim/neovim.git"
-        branch: "stable"
+        branch: "master"
         zig_bin: "nvim"
         output_bin: "/out/nvim"
-        dnf_deps:
-          - cmake
-          - curl
-          - gettext
-          - glibc-gconv-extra
-          - make
-          - ninja-build
         build_cmd:
           - zig
           - build
