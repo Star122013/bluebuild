@@ -26,8 +26,3 @@ modules:
     from: nvim-build
     src: /out/nvim
     dest: /usr/bin/
-
-  - type: copy
-    from: nvim-build
-    src: /tmp/zig-build/zig-out/share/nvim
-    dest: /usr/share/nvim
