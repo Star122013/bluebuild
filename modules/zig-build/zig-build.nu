@@ -79,7 +79,21 @@ def install_artifacts [clone_dir, artifacts] {
       }
     )
 
-    ^install $"-Dm($mode)" $source_path $dest
+    let source_type = (
+      try {
+        $source_path | path type
+      } catch {
+        ""
+      }
+    )
+
+    if ($source_type == "dir") {
+      # Directory artifact: treat 'dest' as target directory and copy all contents.
+      ^mkdir -p $dest
+      ^cp -a $"($source_path)/." $"($dest)/"
+    } else {
+      ^install $"-Dm($mode)" $source_path $dest
+    }
   }
 }
 

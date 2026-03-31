@@ -84,6 +84,9 @@ stages:
         branch: "master"
         zig_bin: "nvim"
         output_bin: "/out/nvim"
+        artifacts:
+          - source: zig-out/runtime
+            dest: /out/nvim-runtime/usr/share/nvim/runtime
         build_cmd:
           - zig
           - build
