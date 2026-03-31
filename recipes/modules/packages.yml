@@ -7,7 +7,6 @@ repos:
     - https://github.com/terrapkg/subatomic-repos/raw/main/terra.repo
     - https://sing-box.app/sing-box.repo
   copr:
-    - agriffis/neovim-nightly
     - aldantanneo/jj-vcs
     - alternateved/cliphist
     - ama1470/kwin-effects-glass
@@ -58,10 +57,7 @@ install:
 
     # Editors
     - helix
-    - repo: copr:copr.fedorainfracloud.org:agriffis:neovim-nightly
-      packages:
-        - neovim
-        - tree-sitter
+    - tree-sitter
 
     # Python
     - uv

@@ -21,3 +21,13 @@ modules:
     from: flow-build
     src: /out/flow
     dest: /usr/bin/
+
+  - type: copy
+    from: nvim-build
+    src: /out/nvim
+    dest: /usr/bin/
+
+  - type: copy
+    from: nvim-build
+    src: /usr/share/nvim
+    dest: /usr/share/nvim

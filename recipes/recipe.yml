@@ -75,6 +75,29 @@ stages:
           - zig
           - build
           - -Doptimize=ReleaseSafe
+  - name: nvim-build
+    from: registry.fedoraproject.org/fedora:43
+    modules:
+      - type: zig-build
+        source: local
+        repository: "https://github.com/neovim/neovim.git"
+        branch: "stable"
+        zig_bin: "nvim"
+        output_bin: "/out/nvim"
+        dnf_deps:
+          - cmake
+          - curl
+          - gettext
+          - glibc-gconv-extra
+          - make
+          - ninja-build
+        build_cmd:
+          - zig
+          - build
+          - install
+          - --prefix
+          - /usr
+          - -Doptimize=ReleaseFast
 
 
 # module configuration, executed in order
