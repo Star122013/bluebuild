@@ -115,6 +115,7 @@ install:
     - qt6ct
     - adw-gtk3-theme
     - bibata-cursor-themes
+    - gtk-murrine-engine
 
 remove:
   packages:
