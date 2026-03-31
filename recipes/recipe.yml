@@ -87,9 +87,6 @@ stages:
         build_cmd:
           - zig
           - build
-          - install
-          - --prefix
-          - /usr
           - -Doptimize=ReleaseFast
 
 
