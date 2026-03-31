@@ -7,36 +7,40 @@ repos:
     - https://github.com/terrapkg/subatomic-repos/raw/main/terra.repo
     - https://sing-box.app/sing-box.repo
   copr:
-    - agriffis/neovim-nightly 
-    - qwerhyy/misc-packages 
-    - matinlotfali/KDE-Rounded-Corners
-    - atim/starship
-    - jdxcode/mise
-    - alternateved/cliphist
-    - leloubil/wl-clip-persist
-    - liusen/Throne
+    - agriffis/neovim-nightly
     - aldantanneo/jj-vcs
-    - scottames/ghostty
-    - scottames/awww
-    - errornointernet/quickshell
-    - solopasha/hyprland
-    - peterwu/rendezvous
-    - lihaohong/yazi
-    - jkinred/satty
-    - dulikiles/vicinae
-    - zhullyb/v2rayA
-    - atim/nushell
-    - sneexy/zen-browser
+    - alternateved/cliphist
     - ama1470/kwin-effects-glass
+    - atim/nushell
+    - atim/starship
+    - dulikiles/vicinae
+    - errornointernet/quickshell
+    - jdxcode/mise
+    - jkinred/satty
+    - leloubil/wl-clip-persist
+    - lihaohong/yazi
+    - liusen/Throne
+    - matinlotfali/KDE-Rounded-Corners
+    - peterwu/rendezvous
+    - qwerhyy/misc-packages
+    - scottames/awww
+    - scottames/ghostty
+    - sneexy/zen-browser
+    - solopasha/hyprland
+    - zhullyb/v2rayA
+
 group-install:
   with-optional: false
   packages:
     - virtualization
+
 install:
   packages:
+    # Third-party RPM URLs
     - https://vscode.download.prss.microsoft.com/dbazure/download/stable/07ff9d6178ede9a1bd12ad3399074d726ebe6e43/code-1.112.0-1773778396.el8.x86_64.rpm
     - https://github.com/chen08209/FlClash/releases/download/v0.8.92/FlClash-0.8.92-linux-amd64.rpm
-    - tree-sitter
+
+    # Base packages
     - terra-release
     - noctalia-shell-git
     - matugen
@@ -46,17 +50,24 @@ install:
     - ImageMagick
     - qt6-qtmultimedia
     - cava
-    # network
+
+    # Network
     - Throne
     - dae
     - sing-box
-    # editors
-    - neovim
+
+    # Editors
     - helix
-    # python
+    - repo: copr:copr.fedorainfracloud.org:agriffis:neovim-nightly
+      packages:
+        - neovim
+        - tree-sitter
+
+    # Python
     - uv
     - pixi
-    # shell-tools
+
+    # Shell tools
     - mise
     - mpd
     - fastfetch
@@ -71,7 +82,8 @@ install:
     - zsh
     - nushell
     - starship
-    # niri runtime helpers
+
+    # Niri runtime helpers
     - fuzzel
     - zen-browser
     - gnome-keyring
@@ -82,18 +94,21 @@ install:
     - slurp
     - satty
     - vicinae
-    # runtime libs for custom-built niri (source builds don't auto-pull RPM deps)
+
+    # Runtime libs for custom-built niri (source builds don't auto-pull RPM deps)
     - libinput
     - libseat
     - mesa-libgbm
     - pipewire-libs
     - cliphist
     - wl-clip-persist
-    # portal
+
+    # Portal
     - xdg-desktop-portal-gnome
     - xdg-desktop-portal-gtk
     - xwayland-satellite
-    # misc
+
+    # Misc
     - kwin-effect-roundcorners
     - kwin-effects-glass
     - kitty
@@ -104,6 +119,7 @@ install:
     - qt6ct
     - adw-gtk3-theme
     - bibata-cursor-themes
+
 remove:
   packages:
     # example: removing firefox (in favor of the flatpak)
