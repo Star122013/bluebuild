@@ -67,6 +67,8 @@ install:
     - mise
     - mpd
     - fastfetch
+    - btop
+    - eza
     - bat
     - zoxide
     - yazi
@@ -90,6 +92,8 @@ install:
     - slurp
     - satty
     - vicinae
+    - waybar
+    - swaync
 
     # Runtime libs for custom-built niri (source builds don't auto-pull RPM deps)
     - libinput
