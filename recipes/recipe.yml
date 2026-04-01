@@ -75,6 +75,25 @@ stages:
           - zig
           - build
           - -Doptimize=ReleaseSafe
+  - name: tree-sitter-build
+    from: registry.fedoraproject.org/fedora:43
+    modules:
+      - type: zig-build
+        source: local
+        repository: "https://github.com/tree-sitter/tree-sitter.git"
+        branch: "release-0.26"
+        zig_bin: "tree-sitter"
+        build_cmd:
+          - zig
+          - build
+          - -Doptimize=ReleaseFast
+          - -Dbuild-shared=true
+        artifacts:
+          - source: zig-out/lib/libtree-sitter.so
+            dest: /out/tree-sitter/usr/lib64/libtree-sitter.so
+            mode: "755"
+          - source: zig-out/include
+            dest: /out/tree-sitter/usr/include
   - name: nvim-build
     from: registry.fedoraproject.org/fedora:43
     modules:

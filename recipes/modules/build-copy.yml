@@ -23,6 +23,11 @@ modules:
     dest: /usr/bin/
 
   - type: copy
+    from: tree-sitter-build
+    src: /out/tree-sitter
+    dest: /
+
+  - type: copy
     from: nvim-build
     src: /out/nvim
     dest: /usr/bin/
