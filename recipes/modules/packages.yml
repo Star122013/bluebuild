@@ -57,7 +57,9 @@ install:
 
     # Editors
     - helix
-    - tree-sitter
+    - repo: copr:copr.fedorainfracloud.org:agriffis:neovim-nightly
+      packages:
+        - tree-sitter
 
     # Python
     - uv
