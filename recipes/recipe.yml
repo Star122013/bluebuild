@@ -83,14 +83,18 @@ stages:
         repository: "https://github.com/neovim/neovim.git"
         branch: "master"
         zig_bin: "nvim"
-        output_bin: "/out/nvim"
-        artifacts:
-          - source: zig-out/runtime
-            dest: /out/nvim-runtime/usr/share/nvim/runtime
         build_cmd:
           - zig
           - build
           - -Doptimize=ReleaseFast
+          - --prefix
+          - /tmp/nvim-install
+        artifacts:
+          - source: /tmp/nvim-install/bin/nvim
+            dest: /out/nvim
+            mode: "755"
+          - source: /tmp/nvim-install/share/nvim/runtime
+            dest: /out/nvim-runtime/usr/share/nvim/runtime
 
 
 # module configuration, executed in order
