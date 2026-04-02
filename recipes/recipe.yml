@@ -94,6 +94,12 @@ stages:
             mode: "755"
           - source: zig-out/include
             dest: /out/tree-sitter/usr/include
+      - type: rust-build
+        source: local
+        repository: "https://github.com/tree-sitter/tree-sitter.git"
+        branch: "release-0.26"
+        cargo_bin: "tree-sitter"
+        output_bin: "/out/tree-sitter/usr/bin/tree-sitter"
   - name: nvim-build
     from: registry.fedoraproject.org/fedora:43
     modules:
