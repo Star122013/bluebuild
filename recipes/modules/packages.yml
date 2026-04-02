@@ -63,7 +63,15 @@ install:
     - uv
     - pixi
 
+    # Build tools
+    - perl-FindBin
+    - openssl-devel
+    - pkgconf-pkg-config
+    - gcc
+    - make
+
     # Shell tools
+    - rustup
     - mise
     - mpd
     - fastfetch
