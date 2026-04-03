@@ -69,7 +69,10 @@ install:
     - pkgconf-pkg-config
     - gcc
     - make
-    - perl-IPC-Cmd
+    - perl-File-Compare
+    - perl-File-Copy   
+    - perl-IPC-Cmd  
+    - perl-Time-HiRes
 
     # Shell tools
     - rustup
