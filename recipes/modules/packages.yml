@@ -69,6 +69,7 @@ install:
     - pkgconf-pkg-config
     - gcc
     - make
+    - perl-IPC-Cmd
 
     # Shell tools
     - rustup
