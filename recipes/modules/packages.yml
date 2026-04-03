@@ -73,6 +73,7 @@ install:
     - perl-File-Copy   
     - perl-IPC-Cmd  
     - perl-Time-HiRes
+    - perl-Time-Piece
 
     # Shell tools
     - rustup
