@@ -26,6 +26,7 @@ repos:
     - scottames/awww
     - scottames/ghostty
     - sneexy/zen-browser
+    - varlad/zellij
     - solopasha/hyprland
     - zhullyb/v2rayA
 
@@ -76,6 +77,7 @@ install:
     - perl-Time-Piece
 
     # Shell tools
+    - zellij
     - rustup
     - mise
     - mpd
