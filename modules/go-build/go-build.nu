@@ -42,11 +42,13 @@ def main [config] {
   let output_bin = ($build_cmd | last)
   let bin_name = ["/out", ($output_bin | path basename )] | path join
   let dnf_deps = (
-    [[gcc go git] (cfg_get $cfg dnf_deps [])]
+    [[gcc golang git] (cfg_get $cfg dnf_deps [])]
     | flatten 
     | uniq 
     )
-    
+  ^dnf copr enable @go-sig/golang-rawhide
+  ^dnf update golang
+
   ^dnf install -y ...$dnf_deps
 
   ^rm -rf $clone_dir
