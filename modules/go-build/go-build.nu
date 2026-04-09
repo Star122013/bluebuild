@@ -1,7 +1,7 @@
 #!/usr/bin/env nu
 
 def cfg_get [cfg, key, fallback] {
-  $cfg | get -o $key | default fallback
+  $cfg | get -o $key | default $fallback
 }
 
 def fail [msg] {
