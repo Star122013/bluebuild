@@ -47,7 +47,6 @@ def main [config] {
     | uniq 
     )
   ^dnf copr enable @go-sig/golang-rawhide
-  ^dnf update golang
 
   ^dnf install -y ...$dnf_deps
 
