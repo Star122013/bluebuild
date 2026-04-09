@@ -129,7 +129,7 @@ stages:
         repository: https://github.com/tristanisham/zvm.git
         branch: master
         build_cmd: 
-          - go
+          - go1.26.2
           - build
           - .
           - -o
