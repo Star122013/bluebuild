@@ -1,0 +1,15 @@
+name: go-build
+shortdesc: Build a go binary from source in a build stage.
+example: |
+  type: go-build
+  source: local
+  repository: https://github.com/tristanisham/zvm.git
+  branch: main
+  # Optional: fully override the compile command.
+  # Prefer list form for predictable argument handling:
+  # build_cmd:
+  #   - go
+  #   - build
+  #   - .
+  #   - -o
+  #   - ./build/nvm
