@@ -40,4 +40,4 @@ modules:
   - type: copy
     from: zvm-build
     src: /out/zvm
-    dest: /usr/bin
+    dest: /usr/bin/
