@@ -122,14 +122,14 @@ stages:
           - source: /tmp/nvim-install/share/nvim/runtime
             dest: /out/nvim-runtime/usr/share/nvim/runtime
   - name: zvm-build
-    from: registry.fedoraproject.org/fedora:43
+    from: registry.fedoraproject.org/fedora:44
     modules: 
       - type: go-build
         source: local
         repository: https://github.com/tristanisham/zvm.git
         branch: master
         build_cmd: 
-          - go1.26.2
+          - go
           - build
           - .
           - -o
