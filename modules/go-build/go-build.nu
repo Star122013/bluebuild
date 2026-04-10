@@ -22,11 +22,10 @@ def run_build [clone_dir, build_cmd] {
         let args = ($build_cmd | skip 1 | each {|arg| $arg | into string } | str join " ")
         ^bash -lc $'($cmd) ($args)'
       }
-    }
-    else if ($build_cmd_type == string) {
+    } else if ($build_cmd_type == string) {
       if ($build_cmd | is-empty) {
         ^go build .
-      }else{
+      } else {
         ^bash -lc $build_cmd
       }
     }
