@@ -128,11 +128,10 @@ stages:
         source: local
         repository: https://github.com/tristanisham/zvm.git
         branch: master
+        output_bin: zvm
         build_cmd: 
           - go
           - build
-          - -o
-          - ./build/nvm
           - .
 
 # module configuration, executed in order
