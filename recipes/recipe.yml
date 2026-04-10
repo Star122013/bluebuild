@@ -128,8 +128,12 @@ stages:
         source: local
         repository: https://github.com/tristanisham/zvm.git
         branch: master
-        build_cmd: "go build -o ./build/nvm ."
-        
+        build_cmd: 
+          - go
+          - build
+          - .
+          - -o
+          - ./build/nvm
 
 # module configuration, executed in order
 # you can include multiple instances of the same module

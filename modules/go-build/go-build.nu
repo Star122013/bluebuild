@@ -19,8 +19,8 @@ def run_build [clone_dir, build_cmd] {
         ^go build .
       } else {
         let cmd = ($build_cmd | first | into string)
-        let args = ($build_cmd | skip 1 | each {|arg| $arg | into string })
-        run-external $cmd ...$args
+        let args = ($build_cmd | skip 1 | each {|arg| $arg | into string } | str join " ")
+        ^bash -lc $'($cmd) ($args)'
       }
     }
     else if ($build_cmd_type == string) {
