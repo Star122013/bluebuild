@@ -48,7 +48,6 @@ def main [config] {
     )
 
   ^dnf install -y ...$dnf_deps
-  go install golang.org/dl/go1.26.2@latest
 
   ^rm -rf $clone_dir
   ^git clone $repo -b $branch --depth=1 $clone_dir
