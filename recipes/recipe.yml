@@ -128,7 +128,7 @@ stages:
         source: local
         repository: https://github.com/tristanisham/zvm.git
         branch: master
-        output_bin: zvm
+        bin_name: zvm
         build_cmd: 
           - go
           - build
