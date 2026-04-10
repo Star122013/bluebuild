@@ -7,7 +7,7 @@ repos:
     - https://github.com/terrapkg/subatomic-repos/raw/main/terra.repo
     - https://sing-box.app/sing-box.repo
   copr:
-    - agriffis/neovim-nightly
+    - anatta/television
     - aldantanneo/jj-vcs
     - alternateved/cliphist
     - ama1470/kwin-effects-glass
@@ -41,6 +41,7 @@ install:
     - https://vscode.download.prss.microsoft.com/dbazure/download/stable/07ff9d6178ede9a1bd12ad3399074d726ebe6e43/code-1.112.0-1773778396.el8.x86_64.rpm
     - https://github.com/chen08209/FlClash/releases/download/v0.8.92/FlClash-0.8.92-linux-amd64.rpm
     - https://github.com/tmuxpack/tpack/releases/download/v0.8.2/tpack_0.8.2_linux_amd64.rpm
+    - https://github.com/bggRGjQaUbCoE/PiliPlus/releases/download/2.0.3.1/PiliPlus_linux_2.0.3+4836_amd64.rpm
     # Base packages
     - terra-release
     - noctalia-shell-git
@@ -59,6 +60,7 @@ install:
 
     # Editors
     - helix
+    - zed
 
     # Python
     - uv
@@ -95,6 +97,7 @@ install:
     - zsh
     - nushell
     - starship
+    - television
 
     # Niri runtime helpers
     - fuzzel
