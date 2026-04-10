@@ -41,6 +41,7 @@ def main [config] {
   let clone_dir = (cfg_get $cfg "clone_dir" "/tmp/go-build")
   let build_cmd = (cfg_get $cfg "build_cmd" [])
   let output_bin = (cfg_get $cfg "bin_name" "")
+  let install_res = ([$clone_dir, $output_bin] | path join )
   let bin_name = ["/out", $output_bin] | path join
   let dnf_deps = (
     [[gcc golang git] (cfg_get $cfg dnf_deps [])]
@@ -54,5 +55,5 @@ def main [config] {
   ^git clone $repo -b $branch --depth=1 $clone_dir
 
   run_build $clone_dir $build_cmd
-  ^install -Dm 755 $output_bin $bin_name
+  ^install -Dm 755 $install_res $bin_name
 }
