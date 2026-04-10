@@ -36,3 +36,8 @@ modules:
     from: nvim-build
     src: /out/nvim-runtime
     dest: /
+
+  - type: copy
+    from: zvm-build
+    src: /out/zvm
+    dest: /usr/bin/

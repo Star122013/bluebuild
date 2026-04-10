@@ -34,11 +34,11 @@ def run_build [clone_dir, build_cmd] {
 
     if (($build_cmd_type | str starts-with "list<")) {
       if (($build_cmd | length) == 0) {
-        # 默认优化级别使用 ReleaseFast
-        ^zig build -Doptimize=ReleaseFast
+  # 默认优化级别使用 ReleaseFast
+  ^zig build -Doptimize=ReleaseFast
       } else {
         let cmd = (($build_cmd | first) | into string)
-        if ($cmd | is-empty) {
+  if ($cmd | is-empty) {
           fail "zig-build: 'build_cmd' list cannot start with an empty command"
         }
         let args = ($build_cmd | skip 1 | each {|arg| $arg | into string })
@@ -48,9 +48,9 @@ def run_build [clone_dir, build_cmd] {
       if ($build_cmd | is-empty) {
         ^zig build -Doptimize=ReleaseFast
       } else {
-        # string 形式兼容旧配置，交给 bash 解释
+  # string 形式兼容旧配置，交给 bash 解释
         ^bash -lc $build_cmd
-      }
+  }
     } else {
       fail "zig-build: 'build_cmd' must be a string or list"
     }
