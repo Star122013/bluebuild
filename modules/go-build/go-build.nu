@@ -22,12 +22,14 @@ def run_build [clone_dir, build_cmd] {
         let args = ($build_cmd | skip 1 | each {|arg| $arg | into string } | str join " ")
         ^bash -lc $'($cmd) ($args)'
       }
-    } else if ($build_cmd_type == string) {
-      if ($build_cmd | is-empty) {
-        ^go build .
-      } else {
-        ^bash -lc $build_cmd
-      }
+    } else { 
+        if ($build_cmd_type == string) {
+          if ($build_cmd | is-empty) {
+            ^go build .
+          } else {
+            ^bash -lc $build_cmd
+          }
+        }
     }
   }
 }
@@ -38,7 +40,8 @@ def main [config] {
   let branch = (cfg_get $cfg "branch" "main")
   let clone_dir = (cfg_get $cfg "clone_dir" "/tmp/go-build")
   let build_cmd = (cfg_get $cfg "build_cmd" [])
-  let output_bin = ($build_cmd | last)
+  let idx = ($build_cmd | enumerate | where {|x| $x.item == "-o" } | get index | first | into int)
+  let output_bin = ($build_cmd | get ($idx + 1))
   let bin_name = ["/out", ($output_bin | path basename )] | path join
   let dnf_deps = (
     [[gcc golang git] (cfg_get $cfg dnf_deps [])]
@@ -47,10 +50,11 @@ def main [config] {
     )
 
   ^dnf install -y ...$dnf_deps
-
+  
   ^rm -rf $clone_dir
   ^git clone $repo -b $branch --depth=1 $clone_dir
 
+  ^mkdir ./build
   run_build $clone_dir $build_cmd
   ^install -Dm 755 $output_bin $bin_name
 }
