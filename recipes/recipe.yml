@@ -16,7 +16,7 @@ stages:
       - type: rust-build
         source: local
         repository: "https://github.com/niri-wm/niri.git"
-        branch: "wip/branch"
+        branch: "main"
         cargo_bin: "niri"
         output_bin: "/out/niri"
         dnf_deps:
