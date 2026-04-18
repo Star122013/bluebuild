@@ -98,6 +98,7 @@ install:
     - nushell
     - starship
     - television
+    - image-builder
 
     # Niri runtime helpers
     - fuzzel
